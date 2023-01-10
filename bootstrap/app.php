@@ -90,3 +90,15 @@ function getCreatedAT($date){
 
     return $data;
 }
+
+function is_active($data){
+    $status = "";
+    if($data == 1){
+        $status = '<span class="badge badge-primary">Active</span>';
+    }
+    else{
+        $status = '<span class="badge badge-danger">In Active</span>';
+    }
+    return $status;
+}
+

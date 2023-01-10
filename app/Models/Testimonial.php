@@ -19,6 +19,9 @@ class Testimonial extends Model
         "created_at","updated_at"
     ];
 
+    protected function user(){
+        return $this->hasOne(User::class, 'id', 'added_by');
+    }
 
 
 }

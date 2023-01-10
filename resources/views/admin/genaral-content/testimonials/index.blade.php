@@ -29,17 +29,17 @@
                                         <th>Name</th>
                                         <th>Designation</th>
                                         <th>Feedback</th>
-                                        <th>Created At</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                     @forelse ($testimonials as $k => $item)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $item->image }}</td>
+                                            <td><img class="d-block rounded-circle w-25" src="{{ asset('upload/testimonial') }}/{{ $item->image }}" alt="{{ $item->image }}"></td>
                                             <td>{{ $item->name }}</td>
                                             <td>{{ $item->designation }}</td>
                                             <td>{{ $item->feedback }}</td>
-                                            <td>{{ $item->created_at }}</td>
+                                            <td>{!! is_active($item->is_active) !!}</td>
 
                                             <td>
                                                 <div class="dropdown d-inline">
@@ -50,8 +50,11 @@
                                                     <div class="dropdown-menu" x-placement="bottom-start"
                                                         style="position: absolute; transform: translate3d(0px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
                                                         <a class="dropdown-item has-icon"
+                                                            href="{{ route('admin.testimonials.show', $item->id) }}"><i
+                                                                class="far fa-eye"></i> Details</a>
+                                                        <a class="dropdown-item has-icon"
                                                             href="{{ route('admin.testimonials.edit', $item->id) }}"><i
-                                                                class="far fa-heart"></i> Edit</a>
+                                                                class="far fa-edit"></i> Edit</a>
                                                         <form action="{{ route('admin.testimonials.destroy', $item->id) }}"
                                                             method="post">
                                                             @csrf
@@ -59,7 +62,7 @@
                                                             <button type="submit" class="dropdown-item has-icon"><i
                                                                     class="far fa-file d-block"></i> Delete</button>
                                                         </form>
-                                                        
+
 
                                                     </div>
                                                 </div>

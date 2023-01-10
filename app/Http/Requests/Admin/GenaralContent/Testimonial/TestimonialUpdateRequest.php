@@ -20,9 +20,9 @@ class TestimonialUpdateRequest extends FormRequest
     {
         return [
             "name" => "bail|required|string|between:3,60",
-            "image" => "nullable|required|image",
+            "image" => "nullable|image|max:2048",
             "designation" => "bail|required|string|between:2,60",
-            "company" => "nullable|string|between:3,60",
+            "company" => "bail|nullable|string|between:3,60",
             "feedback" => "bail|required|string",
         ];
     }

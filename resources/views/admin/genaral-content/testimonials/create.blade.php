@@ -25,31 +25,40 @@
                                 @include("admin.layouts.com.status")
                                 <!-- Name -->
                                 <div class="form-group">
-                                    <label>Name</label>
+                                    <label>Name <span class="text-danger">*</span></label>
                                     <input type="text" name="name" value="{{ old('name') }}" class="form-control">
                                 </div>
 
                                 <!-- Designation -->
                                 <div class="form-group">
-                                    <label>Designation</label>
+                                    <label>Designation <span class="text-danger">*</span></label>
                                     <input type="text" name="designation" value="{{ old('designation') }}" class="form-control">
                                 </div>
 
                                 <!-- Company  -->
                                 <div class="form-group">
-                                    <label>Company</label>
+                                    <label>Company </label>
                                     <input type="text" name="company" value="{{ old('company') }}" class="form-control">
                                 </div>
 
                                 <!-- Feedback  -->
                                 <div class="form-group">
-                                    <label>Feedback</label>
+                                    <label>Feedback <span class="text-danger">*</span></label>
                                     <textarea name="feedback" class="form-control" rows="5">{{ old('feedback') }}</textarea>
+                                </div>
+
+                                <!-- Is Active  -->
+                                <div class="form-group">
+                                    <label>Is Active</label>
+                                    <select class="form-control" name="is_active">
+                                        <option  value="1">Active</option>
+                                        <option  value="0">In Active</option>
+                                    </select>
                                 </div>
 
                                 <!-- Image  -->
                                 <div class="form-group">
-                                    <label>Image</label>
+                                    <label>Image <span class="text-danger">*</span></label>
                                     <input type="file" name="image" value="{{ old('image') }}" class="form-control-file" accept="image/*">
                                 </div>
 
