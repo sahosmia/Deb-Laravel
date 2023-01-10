@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin\UserManagement;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\UserManagement\Role\RoleStoreRequest;
 use App\Models\Module;
 use App\Models\User;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
@@ -31,14 +33,12 @@ class RoleController extends Controller
 
 
     // Store
-    public function store(Request $request)
+    public function store(RoleStoreRequest $request)
     {
-
-
         $role = Role::create(['name' => $request->name]);
 
         $role->syncPermissions($request->permissions);
-        return redirect()->route('admin.roles.index')->with('success', 'Role create done');
+        return back()->withSuccess('Item created done');
     }
 
     // Edit

@@ -3,99 +3,116 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Auth\RegisterOtpSubmitRequest;
+use App\Http\Requests\Admin\Auth\RegisterSubmitRequest;
+use App\Mail\RegisterOtpMail;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
 
 class RegisterController extends Controller
 {
-
-    public function register(){
+    public function register()
+    {
         return view('auth.register');
     }
 
-    public function registerSubmit(Request $request){
+    public function registerSubmit(RegisterSubmitRequest $request)
+    {
+        $otp = rand(1000, 9999);
 
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6',
-        ]);
+        if ($request->session()->has('register_data')) {
+            Session::forget('register_data');
+        }
 
-        $user = User::create([
+        Session::put('register_data', [
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password),
+            'password' => $request->password,
             'role_id' => 8,
-          ]);
+            'otp' => $otp,
+            'time' => Carbon::now(),
+        ]);
 
-          $user->assignRole(8);
-
-          $credentials = $request->only('email', 'password');
-
-          if (Auth::attempt($credentials)) {
-              if(auth()->user()->role_id == 1){
-                  return redirect()->route('frontend.index');
-              }
-
-             return redirect()->intended('home')->withSuccess('Signed in');
-
-          }
-
-          return back();
-
+        Mail::to($request->email)->send(new RegisterOtpMail($otp));
+        return redirect()
+            ->route('registerOtp')
+            ->with('success', 'Check your email for otp. It duration is 5 minit');
     }
 
-    use RegistersUsers;
+    public function registerOtp()
+    {
+        return view('auth.register-otp');
+    }
 
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
+    public function registerOtpSubmit(RegisterOtpSubmitRequest $request)
+    {
+        $user_data = Session::get('register_data');
+        $time_diff = $user_data['time']->diffInMinutes();
+
+        if ($time_diff < 5) {
+            if ($request->otp == $user_data['otp']) {
+                // User Data Store
+                $user = User::create([
+                    'name' => $user_data['name'],
+                    'email' => $user_data['email'],
+                    'password' => Hash::make($user_data['password']),
+                    'role_id' => 8,
+                ]);
+
+                $user->assignRole(8);
+
+                $credentials = [
+                    'email' => $user_data['email'],
+                    'password' => $user_data['password'],
+                ];
+
+                if (Auth::attempt($credentials)) {
+                    if (auth()->user()->role_id == 1) {
+                        return redirect()->route('frontend.index');
+                    }
+
+                    return redirect()
+                        ->route('admin.home')
+                        ->withSuccess('Signed in');
+                }
+                return back()->with('error', 'something is error.');
+            }
+            return back()->with('error', 'Your otp code is wrong. Plese check again');
+        }
+        return back()->with('error', 'This Otp time is end. Plese resend otp again');
+    }
+
+
+
+
+    public function resendOtp(){
+
+        $otp = rand(1000, 9999);
+
+        Session::put('register_data.otp', $otp);
+        Session::put('register_data.time', Carbon::now());
+
+
+
+        Mail::to(Session::get('register_data.email'))->send(new RegisterOtpMail($otp));
+        return redirect()
+            ->route('registerOtp')
+            ->with('success', 'Otp Send Again. Check your email for otp. It duration is 5 minit');
+    }
+
+    // use RegistersUsers;
+
     protected $redirectTo = RouteServiceProvider::HOME;
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('guest');
-    }
-
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
-    }
-
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\Models\User
-     */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
     }
 }

@@ -21,6 +21,7 @@
                             <h4>Add New Role</h4>
                         </div>
                         <div class="card-body">
+                            @include('admin.layouts.com.status')
                             <form action="{{ route('admin.roles.store') }}" method="POST">
                                 @csrf
                                 <!-- Name  -->

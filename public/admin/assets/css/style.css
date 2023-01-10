@@ -171,8 +171,9 @@ select.form-control:not([size]):not([multiple]),
   padding: 10px 15px;
   height: 42px; }
 
+
 textarea.form-control {
-  height: 64px; }
+  height: auto !important;  }
 
 .custom-control {
   line-height: 1.6rem; }
@@ -555,9 +556,9 @@ select.form-control:not([size]):not([multiple]) {
 
 /* 3.4 Alert */
 .alert {
-  color: #fff;
-  border: none;
-  padding: 15px 20px; }
+    color: #fff;
+    border: none;
+}
   .alert .alert-title {
     font-size: 18px;
     font-weight: 700;
@@ -589,8 +590,10 @@ select.form-control:not([size]):not([multiple]) {
     background-color: #3abaf4; }
   .alert.alert-warning {
     background-color: #ffa426; }
-  .alert.alert-danger {
-    background-color: #fc544b; }
+    .alert.alert-danger {
+        background-color: #f8d7da;
+        color: #721c24;
+    }
   .alert.alert-light {
     background-color: #e3eaef;
     color: #191d21; }

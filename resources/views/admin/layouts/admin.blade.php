@@ -28,10 +28,14 @@
             <nav class="navbar navbar-expand-lg main-navbar">
                 <form class="form-inline mr-auto">
                     <ul class="navbar-nav mr-3">
-                        <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i
-                                    class="fas fa-bars"></i></a></li>
-                        <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i
-                                    class="fas fa-search"></i></a></li>
+                        <li>
+                            <a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i
+                                    class="fas fa-bars"></i></a>
+                        </li>
+                        <li>
+                            <a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i
+                                    class="fas fa-search"></i></a>
+                                </li>
                     </ul>
                     <div class="search-element">
                         <input class="form-control" type="search" placeholder="Search" aria-label="Search"
@@ -101,6 +105,26 @@
                     </div>
                 </form>
                 <ul class="navbar-nav navbar-right">
+
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown"
+                            class="nav-link nav-link-lg nav-link-user">
+                            <div class="d-sm-none d-lg-inline-block"><i class="fas fa-plus"></i></div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <div class="dropdown-title">Add New Item</div>
+                            <a href="features-profile.html" class="dropdown-item has-icon">
+                                <i class="far fa-user"></i> Role
+                            </a>
+                            <a href="features-activities.html" class="dropdown-item has-icon">
+                                <i class="fas fa-bolt"></i> User
+                            </a>
+                            <a href="features-settings.html" class="dropdown-item has-icon">
+                                <i class="fas fa-cog"></i> Batch
+                            </a>
+
+                        </div>
+                    </li>
                     <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
                             class="nav-link nav-link-lg message-toggle beep"><i class="far fa-envelope"></i></a>
                         <div class="dropdown-menu dropdown-list dropdown-menu-right">
@@ -122,9 +146,6 @@
                                         <div class="time">10 Hours Ago</div>
                                     </div>
                                 </a>
-
-
-
                             </div>
                             <div class="dropdown-footer text-center">
                                 <a href="#">View All <i class="fas fa-chevron-right"></i></a>
@@ -218,10 +239,10 @@
             <div class="main-sidebar">
                 <aside id="sidebar-wrapper">
                     <div class="sidebar-brand">
-                        <a href="index.html">Stisla</a>
+                        <a href="index.html">DEB</a>
                     </div>
                     <div class="sidebar-brand sidebar-brand-sm">
-                        <a href="index.html">St</a>
+                        <a href="index.html">DEB</a>
                     </div>
                     <ul class="sidebar-menu">
                         <li class="menu-header">Dashboard</li>
@@ -238,13 +259,17 @@
 
                             <ul class="dropdown-menu">
                                 @can('view user')
-                                <li class="@yield('users_menu')"><a class="nav-link" href="{{ route('admin.users.index') }}">User</a></li>
+                                    <li class="@yield('users_menu')"><a class="nav-link"
+                                            href="{{ route('admin.users.index') }}">User</a></li>
                                 @endcan
 
-                                <li class="@yield('roles_menu')"><a class="nav-link" href="{{ route('admin.roles.index') }}">Role</a></li>
-                                <li class="@yield('permissions_menu')"><a class="nav-link" href="{{ route('admin.permissions.index') }}">Permission</a></li>
+                                <li class="@yield('roles_menu')"><a class="nav-link"
+                                        href="{{ route('admin.roles.index') }}">Role</a></li>
+                                <li class="@yield('permissions_menu')"><a class="nav-link"
+                                        href="{{ route('admin.permissions.index') }}">Permission</a></li>
 
-                                <li class="@yield('modules_menu')"><a class="nav-link" href="{{ route('admin.modules.index') }}">Module</a></li>
+                                <li class="@yield('modules_menu')"><a class="nav-link"
+                                        href="{{ route('admin.modules.index') }}">Module</a></li>
                             </ul>
                         </li>
 
@@ -254,11 +279,25 @@
                                     class="fas fa-columns"></i> <span>Course Management</span></a>
 
                             <ul class="dropdown-menu">
-                                {{-- @can('view user') --}}
-                                <li class="@yield('batches_menu')"><a class="nav-link" href="{{ route('admin.batches.index') }}">Batch</a></li>
-                                {{-- @endcan --}}
+                                <li class="@yield('batches_menu')"><a class="nav-link"
+                                        href="{{ route('admin.batches.index') }}">Batch</a></li>
                             </ul>
                         </li>
+
+                        <!-- Genaral Content -->
+                        <li class="nav-item dropdown @yield('genaral_content_dropdown')">
+                            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
+                                    class="fas fa-columns"></i> <span>Genaral Content</span></a>
+
+                            <ul class="dropdown-menu">
+                                <li class="@yield('testimonials_menu')"><a class="nav-link"
+                                        href="{{ route('admin.testimonials.index') }}">Testimonial</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Web Page -->
+                        <li><a class="nav-link" href="{{ route('frontend.index') }}"><i class="fas fa-fire"></i>
+                                <span>Web Page</span></a></li>
                     </ul>
 
                     <div class="mt-4 mb-4 p-3 hide-sidebar-mini">

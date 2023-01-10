@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
@@ -28,6 +29,22 @@ class HomeController extends Controller
 
 
     // Remove all code
+
+
+    // public function test1(){
+
+
+    //     Session::put('test1', [
+    //         'name' => 'sahos',
+    //         'email' => 'sahos@gmail.com',
+    //         'phone' => '01952827301',
+    //     ]);
+    //     return back();
+    // }
+
+    // public function test2(){
+    //     return Session::get('test1');
+    // }
 
     public function createPermission(Request $request){
 

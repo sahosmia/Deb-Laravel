@@ -22,6 +22,8 @@
                         <li>Name : {{ auth()->user()->name }}</li>
                         <li>Email : {{ auth()->user()->email }}</li>
                     </ul>
+                    
+
 
 
 
