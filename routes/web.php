@@ -2,7 +2,13 @@
 
 use App\Http\Controllers\Admin\CourseManagement\BatchController;
 use App\Http\Controllers\Admin\CourseManagement\StudentController;
+use App\Http\Controllers\Admin\GenaralContent\CounterController;
+use App\Http\Controllers\Admin\GenaralContent\GalleryController;
+use App\Http\Controllers\Admin\GenaralContent\NoticeController;
+use App\Http\Controllers\Admin\GenaralContent\QuestionController;
+use App\Http\Controllers\Admin\GenaralContent\TeamController;
 use App\Http\Controllers\Admin\GenaralContent\TestimonialController;
+use App\Http\Controllers\Admin\GenaralContent\WhyChooseController;
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -44,6 +50,12 @@ Route::middleware('auth')->group(function () {
 
         // Genaral Content
         Route::resource('testimonials', TestimonialController::class);
+        Route::resource('teams', TeamController::class);
+        Route::resource('questions', QuestionController::class);
+        Route::resource('galleries', GalleryController::class);
+        Route::resource('notices', NoticeController::class);
+        Route::resource('why-chooses', WhyChooseController::class);
+        Route::resource('counters', CounterController::class);
     });
 
     // Frontend Route

@@ -287,9 +287,25 @@
                         <!-- Genaral Content -->
                         <li class="nav-item dropdown @yield('genaral_content_dropdown')">
                             <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
-                                    class="fas fa-columns"></i> <span>Genaral Content</span></a>
+                                class="fas fa-columns"></i> <span>Genaral Content</span></a>
 
                             <ul class="dropdown-menu">
+
+                                <li class="@yield('counters_menu')"><a class="nav-link"
+                                    href="{{ route('admin.counters.index') }}">Counter</a></li>
+
+                                <li class="@yield('galleries_menu')"><a class="nav-link"
+                                    href="{{ route('admin.galleries.index') }}">Gallery</a></li>
+
+                                <li class="@yield('notices_menu')"><a class="nav-link"
+                                    href="{{ route('admin.notices.index') }}">Notice</a></li>
+
+                                <li class="@yield('questions_menu')"><a class="nav-link"
+                                    href="{{ route('admin.questions.index') }}">Question</a></li>
+
+                                <li class="@yield('teams_menu')"><a class="nav-link"
+                                    href="{{ route('admin.teams.index') }}">Team</a></li>
+
                                 <li class="@yield('testimonials_menu')"><a class="nav-link"
                                         href="{{ route('admin.testimonials.index') }}">Testimonial</a></li>
                             </ul>
