@@ -35,3 +35,21 @@ Student Details Page
     - instragram (nullable)
     - is_active (default == 1) // Active == 1, In Active == 2,
     - Added By 
+
+#### Gallery 
+    - Image 
+    - Title
+    - is_active (default == 1) // Active == 1, In Active == 2,
+    - Added By 
+    
+#### why choose us 
+    - Title
+    - description 
+    - icon 
+    - is_active (default == 1) // Active == 1, In Active == 2,
+    - Added By 
+#### notice
+    - Title
+    - description 
+    - is_active (default == 1) // Active == 1, In Active == 2,
+    - Added By 
