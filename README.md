@@ -48,8 +48,18 @@ Student Details Page
     - icon 
     - is_active (default == 1) // Active == 1, In Active == 2,
     - Added By 
+
 #### notice
     - Title
     - description 
     - is_active (default == 1) // Active == 1, In Active == 2,
     - Added By 
+
+
+#### Blog
+    - Title
+    - description 
+    - is_active (default == 1) // Active == 1, In Active == 2,
+    - Added By 
+
+Sahos
