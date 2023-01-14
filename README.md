@@ -63,4 +63,6 @@ Student Details Page
     - is_active (default == 1) // Active == 1, In Active == 2,
     - Added By 
 
-Sahos
+
+
+Role permission 
