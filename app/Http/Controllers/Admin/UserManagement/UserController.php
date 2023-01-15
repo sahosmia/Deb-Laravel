@@ -14,6 +14,10 @@ class UserController extends Controller
 
     public function index()
     {
+        if(checkPermission('edit articles') == true){
+            return redirect()->route("noAccess");
+        }
+
         return view('admin.user-management.users.index', [
             'users' => User::latest()->paginate(10),
             'roles' => Role::all(),

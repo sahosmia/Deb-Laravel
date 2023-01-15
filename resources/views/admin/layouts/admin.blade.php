@@ -258,10 +258,10 @@
                                     class="fas fa-columns"></i> <span>User Management</span></a>
 
                             <ul class="dropdown-menu">
-                                @can('view user')
+                                {{-- @can('view user') --}}
                                     <li class="@yield('users_menu')"><a class="nav-link"
                                             href="{{ route('admin.users.index') }}">User</a></li>
-                                @endcan
+                                {{-- @endcan --}}
 
                                 <li class="@yield('roles_menu')"><a class="nav-link"
                                         href="{{ route('admin.roles.index') }}">Role</a></li>

@@ -64,6 +64,10 @@ Route::middleware('auth')->group(function () {
         Route::get('/ragistation', [FrontendController::class, 'ragistation'])->name('ragistation');
         Route::post('/ragistationSubmit', [FrontendController::class, 'ragistationSubmit'])->name('ragistationSubmit');
     });
+
+    // Route::view('/no-access', [FrontendController::class, 'noAccess'])->name('noAccess');
+
+    Route::view('/no-access', 'error.403')->name("noAccess");
 });
 
 

@@ -45,9 +45,13 @@
                                                     </button>
                                                     <div class="dropdown-menu" x-placement="bottom-start"
                                                         style="position: absolute; transform: translate3d(0px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
-                                                        <a class="dropdown-item has-icon"
-                                                            href="{{ route('admin.counters.edit', $item->id) }}"><i
-                                                                class="far fa-edit"></i> Edit</a>
+
+                                                        @if (checkPermissionBlade('edit articles'))
+                                                            <a class="dropdown-item has-icon"
+                                                                href="{{ route('admin.counters.edit', $item->id) }}"><i
+                                                                    class="far fa-edit"></i> Edit</a>
+                                                        @endif
+
                                                         <form action="{{ route('admin.counters.destroy', $item->id) }}"
                                                             method="post">
                                                             @csrf

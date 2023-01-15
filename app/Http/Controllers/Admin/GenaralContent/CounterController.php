@@ -14,6 +14,7 @@ class CounterController extends Controller
 
     public function index()
     {
+
         return view('admin.genaral-content.counters.index', [
             'counters' => Counter::latest()->paginate(10),
         ]);

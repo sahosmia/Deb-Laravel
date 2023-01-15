@@ -12,6 +12,7 @@
 */
 
 use Carbon\Carbon;
+use Spatie\Permission\Models\Role;
 
 $app = new Illuminate\Foundation\Application(
     $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__)
@@ -100,5 +101,24 @@ function is_active($data){
         $status = '<span class="badge badge-danger">In Active</span>';
     }
     return $status;
+}
+
+
+// Check Permission for solve url permission
+function checkPermission($data){
+    $role = Role::findById(auth()->user()->role_id);
+
+    if(!$role->hasPermissionTo($data)){
+        return true; // true == no access this permission
+    }
+}
+
+// Check Permission for solve url permission
+function checkPermissionBlade($data){
+    $role = Role::findById(auth()->user()->role_id);
+
+    if($role->hasPermissionTo($data)){
+        return true; // true == has permission
+    }
 }
 

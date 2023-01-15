@@ -35,7 +35,7 @@ class RegisterController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => $request->password,
-            'role_id' => 8,
+            'role_id' => 2,
             'otp' => $otp,
             'time' => Carbon::now(),
         ]);
@@ -63,10 +63,10 @@ class RegisterController extends Controller
                     'name' => $user_data['name'],
                     'email' => $user_data['email'],
                     'password' => Hash::make($user_data['password']),
-                    'role_id' => 8,
+                    'role_id' => 2,
                 ]);
 
-                $user->assignRole(8);
+                $user->assignRole(2);
 
                 $credentials = [
                     'email' => $user_data['email'],
