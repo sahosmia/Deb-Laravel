@@ -58,7 +58,9 @@ Student Details Page
 
 #### Blog
     - Title
+    - slug
     - Image
+    - short description
     - description 
     - is_active (default == 1) // Active == 1, In Active == 2,
     - Added By 
