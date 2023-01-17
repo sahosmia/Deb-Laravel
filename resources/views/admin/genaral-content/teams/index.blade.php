@@ -30,13 +30,15 @@
                                         <th>Name</th>
                                         <th>Designation</th>
                                         <th>Social</th>
+                                        <th>Added By</th>
+                                        <th>Creatd At</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                     @forelse ($teams as $k => $item)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td><img class="d-block rounded-circle w-25" src="{{ asset('upload/team') }}/{{ $item->image }}" alt="{{ $item->image }}"></td>
+                                            <td style="max-width: 100px"><img class="d-block rounded w-25" style="min-width: 50px;" src="{{ asset('upload/team') }}/{{ $item->image }}" alt="{{ $item->image }}"></td>
                                             <td>{{ $item->name }}</td>
                                             <td>{{ $item->designation }}</td>
                                             <td>
@@ -65,6 +67,8 @@
                                                 </ul>
 
                                             </td>
+                                            <td>{{ optional($item->user)->name }}</td>
+                                            <td>{!! getCreatedAT($item->created_at) !!}</td>
                                             <td>{!! is_active($item->is_active) !!}</td>
 
                                             <td>

@@ -35,7 +35,7 @@
                                     @forelse ($testimonials as $k => $item)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td><img class="d-block rounded-circle w-25" src="{{ asset('upload/testimonial') }}/{{ $item->image }}" alt="{{ $item->image }}"></td>
+                                            <td><img style="min-width: 50px" class="d-block rounded w-25" src="{{ asset('upload/testimonial') }}/{{ $item->image }}" alt="{{ $item->image }}"></td>
                                             <td>{{ $item->name }}</td>
                                             <td>{{ $item->designation }}</td>
                                             <td>{{ $item->feedback }}</td>

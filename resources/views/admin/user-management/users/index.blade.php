@@ -13,7 +13,7 @@
             @can('add-user')
             <a href="{{ route('admin.users.create') }}" class="btn btn-primary  ml-auto">Create</a>
             @endcan
-            
+
         </div>
 
         <div class="section-body">
@@ -28,6 +28,7 @@
                         <div class="card-body p-0">
                             <div class="table-responsive">
                                 <table class="table table-striped table-md">
+                                
                                     <tr>
                                         <th>#</th>
                                         <th>Name</th>
@@ -37,6 +38,7 @@
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
+
                                     @forelse ($users as $k => $user)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
@@ -56,19 +58,16 @@
                                                     </button>
                                                     <div class="dropdown-menu" x-placement="bottom-start"
                                                         style="position: absolute; transform: translate3d(0px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
-                                                        @can('edit user')
 
                                                         <a class="dropdown-item has-icon" href="{{ route('admin.users.edit', $user->id) }}"><i
                                                             class="far fa-heart"></i> Edit</a>
-                                                        @endcan
 
-                                                        @can('delete user')
                                                         <form action="{{ route('admin.users.destroy', $user->id) }}" method="post">
                                                             @csrf
                                                             @method("DELETE")
                                                             <button type="submit" class="dropdown-item has-icon"><i class="far fa-file d-block"></i> Delete</button>
                                                         </form>
-                                                        @endcan
+                                                       
 
                                                     </div>
                                                 </div>

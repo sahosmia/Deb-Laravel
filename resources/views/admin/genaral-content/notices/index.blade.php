@@ -27,6 +27,8 @@
                                         <th>#</th>
                                         <th>Title</th>
                                         <th>Description</th>
+                                        <th>Added By</th>
+                                        <th>Creatd At</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -34,7 +36,9 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $item->title }}</td>
-                                            <td>{{ $item->description }}</td>
+                                            <td style="max-width: 400px">{{ $item->description }}</td>
+                                            <td>{{ optional($item->user)->name }}</td>
+                                            <td>{!! getCreatedAT($item->created_at) !!}</td>
                                             <td>{!! is_active($item->is_active) !!}</td>
 
                                             <td>

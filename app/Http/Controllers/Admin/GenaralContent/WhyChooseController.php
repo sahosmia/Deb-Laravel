@@ -15,13 +15,9 @@ class WhyChooseController extends Controller
     public function index()
     {
         return view('admin.genaral-content.why-chooses.index', [
-            'why-chooses' => WhyChoose::latest()->paginate(10),
+            'why_chooses' => WhyChoose::latest()->paginate(10),
         ]);
     }
-
-
-
-
 
 
     public function create()

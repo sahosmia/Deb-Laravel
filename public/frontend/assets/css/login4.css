@@ -24,13 +24,12 @@ li {
   height: auto;
 }
 
-
 .content_side {
-    background: url(../img//banner/login.jpg) no-repeat center;
+	background: url(../img//banner/login.jpg) no-repeat center;
 	background-size: cover;
 	padding: 7rem;
 	color: #fff;
-	height: 100vh;
+	min-height: 100vh;
 	position: relative;
 	z-index: 1;
 }
@@ -134,7 +133,7 @@ li {
 
 .google_color{
   border:1px solid #DB4437 !important;
-
+  
 }
 
 .google_color:hover{
@@ -154,9 +153,9 @@ li {
 	font-weight: 500;
 	text-align: center;
 	margin: 35px 0;
-	font-size: 13px;
+	font-size: 13px; 
 	color: #9d9d9d;
-
+	
 }
 
 .spanOr::after, .spanOr::before {
@@ -267,7 +266,7 @@ iframe{
 	width: 100%;
 	height: 100%;
 }
-
+  
 
 /* Responsive code  */
 
@@ -296,7 +295,7 @@ iframe{
 
 
 @media (min-width: 768px) and (max-width: 991px) {
-
+    
     .form_side {
 		padding: 0 45px;
 	}
@@ -322,7 +321,7 @@ iframe{
 	}
 	.form_side .logo img {
 		width: 130px;
-
+		
 	}
 
 	.content_side {
@@ -335,7 +334,7 @@ iframe{
 		padding: 0 40px;
 	}
 
-	.content_side {
+	.content_side {	
 		padding: 40px;
 	}
 
@@ -365,9 +364,7 @@ iframe{
 
 
 
-.alert li{
-    font-size: 14px;
-}
+
 
 
 

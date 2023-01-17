@@ -37,7 +37,7 @@ class TeamController extends Controller
             $image = Image::make($request->file('image'));
             $imageName = 'Team-'.time().'.'.$request->file('image')->getClientOriginalExtension();
             $destinationPath = public_path('upload/team/');
-            $image->resize(100,100);
+            $image->resize(350,350);
             $image->save($destinationPath.$imageName);
             $inputs['image'] = $imageName;
         }

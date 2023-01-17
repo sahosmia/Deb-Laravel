@@ -29,16 +29,16 @@
                                     <input type="text" name="title" value="{{ old('title') }}" class="form-control">
                                 </div>
 
-                                <!-- Designation -->
-                                <div class="form-group">
-                                    <label>Designation <span class="text-danger">*</span></label>
-                                    <input type="text" name="designation" value="{{ old('designation') }}" class="form-control">
-                                </div>
-
                                 <!-- Icon -->
                                 <div class="form-group">
                                     <label>Icon <span class="text-danger">*</span></label>
                                     <input type="text" name="icon" value="{{ old('icon') }}" class="form-control">
+                                </div>
+
+                                <!-- Description -->
+                                <div class="form-group">
+                                    <label>Description <span class="text-danger">*</span></label>
+                                    <textarea name="description" class="form-control" rows="5">{{ old('description') }}</textarea>
                                 </div>
 
 

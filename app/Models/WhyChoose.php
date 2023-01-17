@@ -12,7 +12,7 @@ class WhyChoose extends Model
     protected $table = "why_chooses";
 
     protected $fillable = [
-        "title", "designation", "icon", "added_by", "is_active",
+        "title", "description", "icon", "added_by", "is_active",
     ];
 
     protected $hidden = [

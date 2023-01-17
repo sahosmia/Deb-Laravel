@@ -4,10 +4,22 @@
 
 @media (min-width: 768px) and (max-width: 991px) {
     
-    
+    .page_banner {
+        padding: 50px 0;
+    }
+    .page_banner_content h2 {  
+        font-size: 28px;
+    }
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
+
+    .page_banner {
+        padding: 50px 0;
+    }
+    .page_banner_content h2 {  
+        font-size: 28px;
+    }
 
     .menu{
         display: none;
@@ -42,13 +54,40 @@
 }
 
 @media (min-width: 320px) and (max-width: 575px) {
+    .team, .question, .choose_us, .about_us, .notice, .registaion_form_section, .registation_course, .testimonial, .profile_page, .blog, .contact, .registaion_details_section {
+        padding: 36px 0;
+    }
+    .page_banner {
+        padding: 50px 0;
+    }
+    .page_banner_content h2 {  
+        font-size: 28px;
+    }
+    .section_heading {
+        margin-bottom: 20px;
+        font-size: 24px;
+    }
+    .section_content {
+        padding-bottom: 20px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
     .button {
         padding: 1rem 2rem;
         font: 500 1.1rem var(--font-family-1);
     }
 
     header nav {
-        line-height: 4rem;
+        line-height: 40px;
+    }
+    .top_header_contact_ul li {
+        margin-right: 13px;
+    }
+    .top_header_social_ul li {
+        padding-left: 10px;
     }
     .navbar_logo {
         font-size: 1.6rem;
@@ -57,18 +96,90 @@
         bottom: 28%;
     }
 
+    .navbar_auth ul li a {
+        padding: 0px 10px;
+    }
+    .profile_dropdown .dropdown-menu {
+        left: 100%;
+    }
     .menu{
         display: none;
     }
 
+    .navbar-light .navbar-toggler {
+        border: none;
+    }
+    .navbar-toggler:focus {
+        box-shadow: none;
+    }
     .banner_content h1 {
-        font: 600 3rem var(--font-family-2);
+        font: 600 2rem var(--font-family-2);
         margin-bottom: 1rem;
     }
 
     .banner_content p {
-        font-size: 1.1rem;
+        font-size: 15px;
         line-height: 2rem;
+        width: 100%;
+    }
+
+
+
+    /* blog  */
+    .blog .blog_item .blog_item_content {
+        padding: 25px 0 0;
+    }
+    .blog .blog_item .blog_item_content h4 a, .blog .blog_item .blog_item_content h4 a:hover {
+        font-size: 22px;
+        font-weight: 600;
+    }
+
+    .blog .blog_item .blog_item_content p {
+        font-size: 14px;
+    }
+
+    /* choose us  */
+    .choose_us_img img {
+        margin: 0 auto 20px;
+    }
+
+    /* testimonial  */
+    .testimonal_item {
+        padding: 30px 20px;
+    }
+    .testimonial .owl-prev i, .testimonial .owl-next i {
+        display: none;
+    }
+    
+    /* counter  */
+    .counter_item h3 {
+        font: 800 40px var(--font-family-1);
+    }
+
+    .counter_item h5 {
+        font: 16px var(--font-family-1);
+        margin-bottom: 30px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* other  */
+
+    .registation_course p {
+        font-size: 14px;
+        margin-bottom: 40px;
     }
     
     /* Footer Css Start  */

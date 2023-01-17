@@ -1,4 +1,4 @@
-/* 
+/*
     * Common  Section
     * Common  Class
     * Preloder
@@ -14,6 +14,8 @@
   --color-black: #000;
   --font-family-1: "Poppins", sans-serif;
   --font-family-2: "Source Serif Pro", serif;
+  --font-family-inter: 'Inter', sans-serif;
+
 }
 
 *,
@@ -28,8 +30,8 @@ html {
   /* font-size: 10px; */
 }
 body {
-  font-family: var(--font-family-1);
-  /* color: var(--color-2); */
+  font-family: var(--font-family-inter);
+  position: relative;
 }
 
 ul {
@@ -59,20 +61,21 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-family-2);
+  font-family: var(--font-family-inter);
   margin-bottom: 0;
 }
-
-/* h1{font-size: 6rem;}
-h2{font-size: 5rem;}
-h3{font-size: 4rem;}
-h4{font-size: 3rem;}
-h5{font-size: 2rem;}
-h6{font-size: 1.6rem;} */
+.sticky-navbar {
+  /* background-color: red !important; */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999999;
+  border-bottom: 1px solid #f42a41;
+}
 
 p {
   margin-bottom: 0;
-  font-size: 1.4rem;
+  font-size: 16px;
 }
 
 img {
@@ -94,8 +97,8 @@ button.button {
 .button {
   background: var(--color-1);
   color: var(--color-white);
-  padding: 1.5rem 4rem;
-  font: 600 1.5rem var(--font-family-1);
+  padding: 15px 40px;
+  font: 600 15px var(--font-family-1);
   transition: all linear 0.3s;
 }
 
@@ -104,14 +107,26 @@ button.button {
   color: var(--color-white);
 }
 
-.section_heading {
-  text-align: center;
-  font-weight: 700;
-  padding-bottom: 10px;
-  font-size: 35px;
-  color: #404145;
+.section_heading::before {
+	position: absolute;
+	content: "";
+	bottom: -12px;
+	left: 48%;
+	width: 48px;
+	height: 2px;
+	background: #afbfbb;
+	display: block;
+	margin: 0 auto;
 }
-
+.section_heading {
+	text-align: center;
+	font-weight: 600;
+	margin-bottom: 25px;
+	font-size: 32px;
+	color: #404145;
+	text-transform: uppercase;
+  position: relative;
+}
 .section_content {
   padding-bottom: 60px;
 }
@@ -120,18 +135,21 @@ button.button {
   color: #999;
 }
 
-.course_category,
-.mentor,
-.why_choose,
+
+.team,
+.question,
+.choose_us,
 .about_us,
 .notice,
-.newsletter,
 .registaion_form_section,
 .registation_course,
 .testimonial,
-.registaion_details_section,
-.gallery {
-  padding: 6rem 0;
+.profile_page,
+.blog,
+.contact,
+.registaion_details_section{
+  padding: 60px 0;
+  position: relative;
 }
 /*========== Custom Common Class End ===========*/
 

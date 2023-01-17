@@ -27,7 +27,9 @@
                                         <th>#</th>
                                         <th>Icon</th>
                                         <th>Title</th>
-                                        <th>Designation</th>
+                                        <th>Description</th>
+                                        <th>Added By</th>
+                                        <th>Creatd At</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -36,7 +38,9 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{!! $item->icon !!}</td>
                                             <td>{{ $item->title }}</td>
-                                            <td>{{ $item->designation }}</td>
+                                            <td style="max-width: 400px">{{ $item->description }}</td>
+                                            <td>{{ optional($item->user)->name }}</td>
+                                            <td>{!! getCreatedAT($item->created_at) !!}</td>
                                             <td>{!! is_active($item->is_active) !!}</td>
 
                                             <td>

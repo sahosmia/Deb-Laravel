@@ -30,18 +30,20 @@
                                     <label>Title <span class="text-danger">*</span> </label>
                                     <input type="text" name="title" value="{{ $data->title }}" class="form-control">
                                 </div>
-
-                                <!-- Designation -->
-                                <div class="form-group">
-                                    <label>Designation <span class="text-danger">*</span></label>
-                                    <input type="text" name="designation" value="{{ $data->designation }}" class="form-control">
-                                </div>
-
+                                
                                 <!-- Icon -->
                                 <div class="form-group">
                                     <label>Icon <span class="text-danger">*</span></label>
                                     <input type="text" name="icon" value="{{ $data->icon }}" class="form-control">
                                 </div>
+
+                                <!-- Designation -->
+                                <div class="form-group">
+                                    <label>Designation <span class="text-danger">*</span></label>
+                                    <textarea name="description" class="form-control" rows="5">{{ $data->description }}</textarea>
+                                </div>
+
+
 
                                 <!-- Is Active  -->
                                 <div class="form-group">

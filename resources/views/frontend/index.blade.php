@@ -36,14 +36,40 @@
 </head>
 
 <body>
-    <div class="loader_bg">
-        <div class="loader"></div>
-    </div>
 
+    <!-- <div class="loader_bg">
+        <div class="loader"></div>
+    </div> -->
+
+    <!-- header start  -->
     <header>
-        <nav class="navbar fixed-top navbar-expand-sm navbar-light">
+        <!-- top header start  -->
+        <div class="top_header">
             <div class="container">
-                <a class="navbar-brand" href="#">
+                <div class="row">
+                    <div class="col-md-8 col-9 top_header_left">
+                        <ul class="top_header_contact_ul">
+                            <li><i class="fa-solid fa-phone-flip"></i> 01952827301</li>
+                            <li><i class="fa-solid fa-envelope"></i> deb@gmail.com</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 col-3  top_header_right">
+                        <ul class="top_header_social_ul">
+                            <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                            <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- top header end  -->
+        <!-- nav start -->
+        <nav class="navbar  navbar-expand-sm navbar-light">
+            <div class="container">
+                <a class="navbar-brand" href="./index.html">
                     <img src="{{ asset('frontend/assets/img/logo/DEB-Grean-Logo.png') }}" alt=""
                         class="w_100" />
                 </a>
@@ -63,9 +89,6 @@
                             <a class="nav-link" href="index.html#about_us">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Course</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="gallery.html">Gallary</a>
                         </li>
                         <li class="nav-item">
@@ -74,9 +97,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="./notice.html">Notice</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./careear-hub.html">Carrear Hub</a>
-                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="./contact.html">Contact</a>
                         </li>
@@ -84,51 +105,63 @@
 
                     <div class="navbar_auth">
                         <ul>
-                            {{-- <li><a href="#" class="button-48">Login</a></li>
-                <li><a href="#" class="button-48"><span class="text">Register</span></a></li> --}}
-
-                            <li><a href="{{ route('logout') }}" class="button-48">Logout</a></li>
+                            <div class="dropdown profile_dropdown">
+                                <button class="dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <!-- <i class="fa-solid fa-user"></i>  -->
+                                    Sahos Mia
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="./profile.html">Profile</a></li>
+                                    <li><a class="dropdown-item" href="./profile-edit.html">Edit</a></li>
+                                    <li><a class="dropdown-item" href="./class.html">Class</a></li>
+                                    <li><a class="dropdown-item" href="./rules-regulaion.html">Rules & Regulation</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Logout</a></li>
+                                </ul>
+                            </div>
                         </ul>
                     </div>
+
                 </div>
+
+
             </div>
         </nav>
-
-
+        <!-- nav end -->
     </header>
+    <!-- header  end -->
+
     <main>
+
         <!-- banner section start  -->
         <section class="banner">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-8 m-auto">
-                        <div class="banner_content text-center ">
-                            <h1>Growth You Career With </h1>
-                            <h1 data-aos="slide-down" data-aos-duration="3000">Digital Experts in Bangladesh</h1>
+                    <div class="col-md-10 col-lg-8">
+                        <div class="banner_content">
+                            <h1>Growth You Career With Digital Experts in Bangladesh</h1>
                             <p>
                                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex
                                 asperiores eos voluptas, corrupti Ut, ad facilis.
                             </p>
-                            <a class="button" href="#">Start Your Jurning</a>
-
-                            <!-- HTML !-->
-                            <button class="button-48" role="button"><span class="text">Button 48</span></button>
-
-
+                            <ul>
+                                <li>Grouth</li>
+                                <li>Experts</li>
+                                <li>Success</li>
+                            </ul>
+                            <a class="button-48" role="button"><span class="text">Registar Now</span></a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-
-
-
         <!-- About US Section Start -->
         <section class="about_us" id="about_us">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 m-auto">
+                    <div class="col-md-10 m-auto">
                         <div class="section_content" data-aos="zoom-in" data-aos-duration="4000">
                             <h3 class="section_heading">About Us</h3>
                             <p>
@@ -139,30 +172,26 @@
                     </div>
                 </div>
                 <div class="row d-flex align-items-center">
-                    <div class="col-md-6">
+                    <div class="col-md-12 col-lg-6">
                         <div class="about_us_content" data-aos="fade-up-right" data-aos-duration="1000">
-                            <h5>Web & Softwer</h5>
+                            <h5>Our Mission</h5>
                             <p>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                 Facere laboriosam neque aliquid rerum quas. Ea eligendi
                                 veritatis quo possimus et. Lorem ipsum dolor sit amet
                                 consectetur adipisicing elit.
                             </p>
+                            <h5>Our Vission</h5>
                             <p>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                 Facere laboriosam neque aliquid rerum quas. Ea eligendi
                                 veritatis quo possimus et.
                             </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Facere laboriosam neque aliquid rerum quas. Ea eligendi
-                                veritatis quo possimus et. Lorem ipsum dolor sit amet
-                                consectetur adipisicing elit.
-                            </p>
+
                         </div>
                     </div>
 
-                    <div class="col-md-6">
+                    <div class="col-md-12 col-lg-6">
                         <div class="about_us_img" data-aos="fade-up-left" data-aos-duration="1000">
                             <img src="{{ asset('frontend/assets/img/logo/DEB-Grean-Logo.png') }}" alt="" />
                         </div>
@@ -172,12 +201,11 @@
         </section>
         <!-- About US Section End -->
 
-
         <!-- Notice Section Start  -->
         <section class="notice">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 m-auto">
+                    <div class="col-md-10 m-auto">
                         <div class="section_content" data-aos="zoom-in" data-aos-duration="1000">
                             <h3 class="section_heading">Notice</h3>
                             <p>
@@ -189,134 +217,108 @@
                 </div>
 
                 <div class="row mb-5" data-aos="fade-up" data-aos-duration="1000">
-                    <div class="col-md-3">
+                    @foreach ($notices as $notice)
+                    <div class="col-md-6 col-lg-3">
                         <div class="notice_item">
                             <div class="notice_item_content">
                                 <ul class="d-flex justify-content-between">
                                     <li>
-                                        <p class="notice_category">Alex Sharuk</p>
+                                        <p class="notice_category">{{ optional($notice->user)->name }}</p>
                                     </li>
                                     <li>
-                                        <p class="notice_date">26th Nov, 2016</p>
+                                        <p class="notice_date">{{ $notice->created_at->format('d M, Y') }}</p>
                                     </li>
                                 </ul>
-                                <h5>Basic web design for beginer course</h5>
-                                <p class="notice_description">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Minima, incidunt aspernatur ipsa!
-                                </p>
+                                <h5>{{ $notice->title }}</h5>
+                                <p class="notice_description">{{ $notice->description }}</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="notice_item">
-                            <div class="notice_item_content">
-                                <ul class="d-flex justify-content-between">
-                                    <li>
-                                        <p class="notice_category">Alex Sharuk</p>
-                                    </li>
-                                    <li>
-                                        <p class="notice_date">26th Nov, 2016</p>
-                                    </li>
-                                </ul>
-                                <h5>Basic web design for beginer course</h5>
-                                <p class="notice_description">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Minima, incidunt aspernatur ipsa!
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="notice_item">
-                            <div class="notice_item_content">
-                                <ul class="d-flex justify-content-between">
-                                    <li>
-                                        <p class="notice_category">Alex Sharuk</p>
-                                    </li>
-                                    <li>
-                                        <p class="notice_date">26th Nov, 2016</p>
-                                    </li>
-                                </ul>
-                                <h5>Basic web design for beginer course</h5>
-                                <p class="notice_description">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Minima, incidunt aspernatur ipsa!
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="notice_item">
-                            <div class="notice_item_content">
-                                <ul class="d-flex justify-content-between">
-                                    <li>
-                                        <p class="notice_category">Alex Sharuk</p>
-                                    </li>
-                                    <li>
-                                        <p class="notice_date">26th Nov, 2016</p>
-                                    </li>
-                                </ul>
-                                <h5>Basic web design for beginer course</h5>
-                                <p class="notice_description">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Minima, incidunt aspernatur ipsa!
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+
+
                 </div>
 
                 <div class="row">
                     <div class="col-md-6 text-center m-auto">
-                        <a href="#" class="see_all_btn">See All</a>
+                        <a href="#" class="button-49"><span class="text">See All</span></a>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Populer Blog Section End  -->
+        <!-- Notice Section End  -->
+
+        <!-- Choose US Section Start -->
+        <section class="choose_us" id="choose_us">
+            <div class="container">
+
+                <div class="row d-flex align-items-center">
+                    <div class="col-md-5">
+                        <div class="choose_us_img" data-aos="fade-up-left" data-aos-duration="1000">
+                            <img src="{{ asset('frontend/assets/img/why-choose.jpg') }}" alt="" />
+                        </div>
+                    </div>
+
+                    <div class="col-md-7">
+                        <div class="choose_us_content" data-aos="fade-up-right" data-aos-duration="1000">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4 class="sub_title">Why Choose Us</h4>
+                                    <p class="sub_content">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                        Sed, laudantium?</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                @foreach ($whychooses as $whychoose)
+                                    <div class="col-md-12 col-lg-6">
+                                        <div class="choose_item">
+                                            {!! $whychoose->icon !!}
+                                            <div class="choose_item_content">
+                                                <h6>{{ $whychoose->title }}</h6>
+                                                <p>{{ $whychoose->description }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+        <!-- Choose US Section End -->
+
 
         <!-- Auto Counter Section Start  -->
         <section class="auto_counter">
             <div class="container">
                 <div class="row" data-aos="fade-up" data-aos-duration="1000">
-                    <div class="col-md-3">
-                        <div class="counter_item">
-                            <h3 class="counter">750</h3>
-                            <h5 class="">Learners</h5>
+                    @foreach ($counters as $counter)
+                        <div class="col-md-6 col-lg-3">
+                            <div class="counter_item">
+                                <h3 class="counter" data-count="{{ $counter->number }}">{{ $counter->number }}</h3>
+                                <h5 class="">{{ $counter->title }}</h5>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="counter_item">
-                            <h3 class="counter">60</h3>
-                            <h5 class="">Course Published</h5>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="counter_item">
-                            <h3 class="counter">30</h3>
-                            <h5 class="">Job Placement</h5>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="counter_item">
-                            <h3 class="counter">140</h3>
-                            <h5 class="">Happy Client</h5>
-                        </div>
-                    </div>
+                    @endforeach
+
                 </div>
             </div>
         </section>
         <!-- Auto Counter Section End  -->
 
-        <!-- Why Choose Section Start  -->
-        <section class="why_choose">
+        <!-- Question Section Start  -->
+        <section class="question">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 m-auto">
+                    <div class="col-md-10 m-auto">
                         <div class="section_content" data-aos="fade-up" data-aos-duration="1000">
                             <h3 class="section_heading">
-                                Why <span class="primary_color">Choose</span>
+                                Questions
                             </h3>
                             <p>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt,
@@ -326,144 +328,77 @@
                     </div>
                 </div>
                 <div class="row" data-aos="fade-up" data-aos-duration="1000">
-                    <div class="col-md-6">
+                    <div class="col-md-12 col-lg-6">
                         <img class="w-75" src="{{ asset('frontend/assets/img/why-choose/why_choose.jpg') }}"
-                            alt="why_choose" />
+                            alt="question" />
                     </div>
-                    <div class="col-md-6 align-items-center d-flex" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="col-md-12 col-lg-6 align-items-center d-flex" data-aos="fade-up"
+                        data-aos-duration="1000">
                         <div class="accordion" id="accordionExample">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingOne">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseOne" aria-expanded="true"
-                                        aria-controls="collapseOne">
-                                        24/7 hour support
-                                    </button>
-                                </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse show"
-                                    aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <span>Lorem ipsum dolor sit amet consectetur adipisicing
-                                            elit. Quas ipsa modi neque cum vero deserunt labore,
-                                            voluptatum in? Iusto dolorem accusamus in ipsam possimus
-                                            molestias vitae numquam similique accusantium
-                                            placeat?</span>
+
+                            @foreach ($questions as $k => $question)
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="heading{{ $k }}">
+                                        <button class="accordion-button {{ $k == 0 ? '' : 'collapsed' }}"
+                                            type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapse{{ $k }}"
+                                            aria-expanded="{{ $k == 0 ? 'true' : 'false' }}"
+                                            aria-controls="collapse{{ $k }}">
+                                            {{ $k }}{{ $question->title }}
+                                        </button>
+                                    </h2>
+                                    <div id="collapse{{ $k }}"
+                                        class="accordion-collapse collapse {{ $k == 0 ? 'show' : '' }}"
+                                        aria-labelledby="heading{{ $k }}"
+                                        data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <span>{{ $question->answer }}</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingTwo">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
-                                        aria-controls="collapseTwo">
-                                        Job placement for beginer
-                                    </button>
-                                </h2>
-                                <div id="collapseTwo" class="accordion-collapse collapse"
-                                    aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <span>Lorem ipsum dolor sit amet consectetur adipisicing
-                                            elit. Quas ipsa modi neque cum vero deserunt labore,
-                                            voluptatum in? Iusto dolorem accusamus in ipsam possimus
-                                            molestias vitae numquam similique accusantium
-                                            placeat?</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingThree">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#collapseThree"
-                                        aria-expanded="false" aria-controls="collapseThree">
-                                        Group study best environtment
-                                    </button>
-                                </h2>
-                                <div id="collapseThree" class="accordion-collapse collapse"
-                                    aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <span>Lorem ipsum dolor sit amet consectetur adipisicing
-                                            elit. Quas ipsa modi neque cum vero deserunt labore,
-                                            voluptatum in? Iusto dolorem accusamus in ipsam possimus
-                                            molestias vitae numquam similique accusantium
-                                            placeat?</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingFour">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#collapseFour"
-                                        aria-expanded="false" aria-controls="collapseFour">
-                                        Scolership Opportunity
-                                    </button>
-                                </h2>
-                                <div id="collapseFour" class="accordion-collapse collapse"
-                                    aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <span>Lorem ipsum dolor sit amet consectetur adipisicing
-                                            elit. Quas ipsa modi neque cum vero deserunt labore,
-                                            voluptatum in? Iusto dolorem accusamus in ipsam possimus
-                                            molestias vitae numquam similique accusantium
-                                            placeat?</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingFive">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#collapseFive"
-                                        aria-expanded="false" aria-controls="collapseFive">
-                                        Accordion Item
-                                    </button>
-                                </h2>
-                                <div id="collapseFive" class="accordion-collapse collapse"
-                                    aria-labelledby="headingFive" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <span>Lorem ipsum dolor sit amet consectetur adipisicing
-                                            elit. Quas ipsa modi neque cum vero deserunt labore,
-                                            voluptatum in? Iusto dolorem accusamus in ipsam possimus
-                                            molestias vitae numquam similique accusantium
-                                            placeat?</span>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
+
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Course Category Section End  -->
+        <!-- Question Category Section End  -->
 
-        <!-- Newsletter Section Start  -->
-        <section class="newsletter">
-            <div class="container">
+        <!-- Gallery Section Start  -->
+
+        <section class="gallery">
+            <div class="container-fluid">
                 <div class="row" data-aos="fade-up" data-aos-duration="1000">
-                    <div class="col-md-6">
-                        <h4>Newsletter</h4>
-                        <p>
-                            Keep us with our latest news and events. Subscribe to our
-                            newsletter
-                        </p>
+                    @foreach ($galleries as $gallery)
+
+
+                    <div class="col-md-3 col-sm-6 gallery_item">
+                        <img src="{{ asset('upload/gallery') }}/{{ $gallery->image }}" alt="{{ $gallery->image }}">
+                        <div class="gallery_eye">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
                     </div>
-                    <div class="col-md-6 d-flex align-items-center justify-content-end">
-                        <form action="">
-                            <input type="text" placeholder="Type your email address" />
-                            <button>Subscribe</button>
-                        </form>
-                    </div>
+                    @endforeach
+
+                </div>
+
+                <div class="popup-image">
+                    <span>x</span>
+                    <img src="" alt="">
                 </div>
             </div>
         </section>
-        <!-- Newsletter Section End  -->
+        <!-- Gallery Section End  -->
 
-        <!-- Mentor Section Start  -->
-        <section class="mentor">
+        <!-- team Section Start  -->
+        <section class="team">
             <div class="container">
                 <div class="row" data-aos="fade-up" data-aos-duration="1000">
-                    <div class="col-md-6 m-auto">
+                    <div class="col-md-10 m-auto">
                         <div class="section_content">
                             <h3 class="section_heading">
-                                Best <span class="primary_color">Mentor</span>
+                                Best <span class="primary_color">team</span>
                             </h3>
                             <p>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt,
@@ -473,130 +408,68 @@
                     </div>
                 </div>
                 <div class="row" data-aos="fade-up" data-aos-duration="1000">
-                    <div class="col-md-3">
-                        <div class="mentor_item">
-                            <div class="mentor_image">
-                                <img src="{{ asset('frontend/assets/img/mentor/mentor-1.png') }}" alt="" />
-                            </div>
-                            <div class="mentor_content">
-                                <h4 class="mentor_name">Sahos Mia</h4>
-                                <h6 class="mentor_designation">Web Developer</h6>
-                                <p>
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                    Aliquid reprehenderit reiciendis itaque aspernatur.
-                                </p>
 
-                                <ul>
-                                    <li>
-                                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                                    </li>
-                                </ul>
+                    @foreach ($teams as $team)
+                        <div class="col-md-6 col-lg-3">
+                            <div class="team_item">
+                                <img class="w-100" src="{{ asset('upload/team') }}/{{ $team->image }}"
+                                    alt="" />
+                                <div class="team_item_backside">
+                                    <div class="team_image">
+                                        <img src="{{ asset('upload/team') }}/{{ $team->image }}"
+                                            alt="{{ $team->image }}" />
+                                    </div>
+                                    <div class="team_content">
+                                        <h4 class="team_name">{{ $team->name }}</h4>
+                                        <h6 class="team_designation">{{ $team->designation }}</h6>
+
+
+                                        <ul>
+                                            @if ($team->facebook != null)
+                                                <li>
+                                                    <a href="{{ $team->facebook }}"><i
+                                                            class="fa-brands fa-facebook-f"></i></a>
+                                                </li>
+                                            @endif
+
+                                            @if ($team->twitter != null)
+                                                <li>
+                                                    <a href="{{ $team->twitter }}"><i
+                                                            class="fa-brands fa-twitter"></i></a>
+                                                </li>
+                                            @endif
+
+                                            @if ($team->instragram != null)
+                                                <li>
+                                                    <a href="{{ $team->instragram }}"><i
+                                                            class="fa-brands fa-instagram"></i></a>
+                                                </li>
+                                            @endif
+
+                                            @if ($team->linkedin != null)
+                                                <li>
+                                                    <a href="{{ $team->linkedin }}"><i
+                                                            class="fa-brands fa-linkedin"></i></a>
+                                                </li>
+                                            @endif
+
+                                            @if ($team->youtube != null)
+                                                <li>
+                                                    <a href="{{ $team->youtube }}"><i
+                                                            class="fa-brands fa-youtube"></i></a>
+                                                </li>
+                                            @endif
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="mentor_item">
-                            <div class="mentor_image">
-                                <img src="{{ asset('frontend/assets/img/mentor/mentor-2.png') }}" alt="" />
-                            </div>
-                            <div class="mentor_content">
-                                <h4 class="mentor_name">Ridoy Hossin</h4>
-                                <h6 class="mentor_designation">Networking Specalist</h6>
-                                <p>
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                    Aliquid reprehenderit reiciendis itaque aspernatur.
-                                </p>
+                    @endforeach
 
-                                <ul>
-                                    <li>
-                                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="mentor_item">
-                            <div class="mentor_image">
-                                <img src="{{ asset('frontend/assets/img/mentor/mentor-3.jpg') }}" alt="" />
-                            </div>
-                            <div class="mentor_content">
-                                <h4 class="mentor_name">Jr. Naymer</h4>
-                                <h6 class="mentor_designation">Web Developer</h6>
-                                <p>
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                    Aliquid reprehenderit reiciendis itaque aspernatur.
-                                </p>
-
-                                <ul>
-                                    <li>
-                                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="mentor_item">
-                            <div class="mentor_image">
-                                <img src="{{ asset('frontend/assets/img/mentor/mentor-4.jpg') }}" alt="" />
-                            </div>
-                            <div class="mentor_content">
-                                <h4 class="mentor_name">Alex Mojumdar</h4>
-                                <h6 class="mentor_designation">App Developer</h6>
-                                <p>
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                    Aliquid reprehenderit reiciendis itaque aspernatur.
-                                </p>
-
-                                <ul>
-                                    <li>
-                                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
-        <!-- Mentor Section End  -->
+        <!-- team Section End  -->
 
         <!-- registation_course Section Start  -->
         <section class="registation_course">
@@ -611,8 +484,8 @@
                         </p>
                     </div>
                     <div class="col-md-6 d-flex align-items-center justify-content-end">
-                        <a href="./registation_details.html" class="button">Details</a>
-                        <a href="{{ route('frontend.ragistation') }}" class="button">Registaion Here</a>
+                        <a href="./registation_details.html" class=" button-48"><span>Details</span></a>
+                        <a href="./Registation1.html" class=" button-49"><span>Registaion Here</span></a>
                     </div>
                 </div>
             </div>
@@ -623,98 +496,118 @@
         <section class="testimonial">
             <div class="container">
                 <div class="row" data-aos="fade-up" data-aos-duration="1000">
-                    <div class="col-md-6 m-auto">
+                    <div class="col-md-10 m-auto">
                         <div class="section_content">
-                            <h3 class="section_heading">
-                                Students <span class="primary_color">Feedback</span>
+                            <h3 class="section_heading sec_heading">
+                                Testimonials
                             </h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt,
-                                exercitationem? Delectus nemo, quas neque totam voluptates.
-                            </p>
+
                         </div>
                     </div>
                 </div>
-                <div class="row owl-carousel" data-aos="fade-up" data-aos-duration="1000">
-                    <div class="col-md-12">
-                        <div class="testimonal_item">
-                            <div class="testimonial_image">
-                                <img src="{{ asset('frontend/assets/img/mentor/mentor-1.png') }}" alt="" />
-                            </div>
-                            <div class="testimonial_content">
-                                <h4 class="testimonial_name">Ridoy Hossin</h4>
-                                <h6 class="testimonial_designation">Networking Specalist</h6>
-                                <p class="testimonial_description">
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                    Aliquid reprehenderit reiciendis itaque aspernatur.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="testimonal_item">
-                            <div class="testimonial_image">
-                                <img src="{{ asset('frontend/assets/img/mentor/mentor-2.png') }}" alt="" />
-                            </div>
-                            <div class="testimonial_content">
-                                <h4 class="testimonial_name">Ridoy Hossin</h4>
-                                <h6 class="testimonial_designation">Networking Specalist</h6>
-                                <p class="testimonial_description">
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                    Aliquid reprehenderit reiciendis itaque aspernatur.
-                                </p>
+                <div class="row owl-carousel" data-aos="fade-up" d ata-aos-duration="1000">
+
+                    @foreach ($testimonials as $testimonial)
+                        <div class="col-md-12">
+                            <div class="testimonal_item">
+                                <div class="testimonial_image">
+                                    <img src="{{ asset('upload/testimonial') }}/{{ $testimonial->image }}"
+                                        alt="{{ $testimonial->image }}" />
+                                </div>
+                                <div class="testimonial_content">
+                                    <h4 class="testimonial_name">{{ $testimonial->name }}</h4>
+                                    <h6 class="testimonial_designation">
+                                        {{ $testimonial->designation }}{{ $testimonial->company != null ? ', ' . $testimonial->company : '' }}
+                                    </h6>
+                                    <p class="testimonial_description">{{ $testimonial->feedback }}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="testimonal_item">
-                            <div class="testimonial_image">
-                                <img src="{{ asset('frontend/assets/img/mentor/mentor-3.jpg') }}" alt="" />
-                            </div>
-                            <div class="testimonial_content">
-                                <h4 class="testimonial_name">Ridoy Hossin</h4>
-                                <h6 class="testimonial_designation">Networking Specalist</h6>
-                                <p class="testimonial_description">
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                    Aliquid reprehenderit reiciendis itaque aspernatur.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="testimonal_item">
-                            <div class="testimonial_image">
-                                <img src="{{ asset('frontend/assets/img/mentor/mentor-4.jpg') }}" alt="" />
-                            </div>
-                            <div class="testimonial_content">
-                                <h4 class="testimonial_name">Ridoy Hossin</h4>
-                                <h6 class="testimonial_designation">Networking Specalist</h6>
-                                <p class="testimonial_description">
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                    Aliquid reprehenderit reiciendis itaque aspernatur.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="testimonal_item">
-                            <div class="testimonial_image">
-                                <img src="{{ asset('frontend/assets/img/mentor/mentor-2.png') }}" alt="" />
-                            </div>
-                            <div class="testimonial_content">
-                                <h4 class="testimonial_name">Ridoy Hossin</h4>
-                                <h6 class="testimonial_designation">Networking Specalist</h6>
-                                <p class="testimonial_description">
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                    Aliquid reprehenderit reiciendis itaque aspernatur.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+
                 </div>
             </div>
         </section>
         <!-- Testimonial Section End  -->
+
+        <!-- Blog Section Start  -->
+        <section class="blog">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 m-auto">
+                        <div class="section_content" data-aos="zoom-in" data-aos-duration="1000">
+                            <h3 class="section_heading">Blog</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.Quas
+                                neque totam voluptates.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="col-md-4">
+                        <div class="blog_item">
+                            <img src="{{ asset('frontend/assets/img/blog/5.webp') }}" alt="">
+                            <div class="blog_item_content">
+                                <ul>
+                                    <li><i class="fa-solid fa-heart"></i> 50 Heart</li>
+                                    <li><i class="fa-solid fa-comment"></i> 7 Comment</li>
+
+                                </ul>
+                                <h4><a href="#">Basic web design for beginer course</a></h4>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Minima, incidunt aspernatur ipsa! Lorem ipsum dolor sit amet consectetur adipisicing
+                                    elit. Cumque, libero.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="blog_item">
+                            <img src="{{ asset('frontend/assets/img/blog/7.webp') }}" alt="">
+                            <div class="blog_item_content">
+                                <ul>
+                                    <li><i class="fa-solid fa-heart"></i> 50 Heart</li>
+                                    <li><i class="fa-solid fa-comment"></i> 7 Comment</li>
+
+                                </ul>
+                                <h4><a href="#">Basic web design for beginer course</a></h4>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Minima, incidunt aspernatur ipsa! Lorem ipsum dolor sit amet consectetur adipisicing
+                                    elit. Cumque, libero.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="blog_item">
+                            <img src="{{ asset('frontend/assets/img/blog/6.webp') }}" alt="">
+                            <div class="blog_item_content">
+                                <ul>
+                                    <li><i class="fa-solid fa-heart"></i> 50 Heart</li>
+                                    <li><i class="fa-solid fa-comment"></i> 7 Comment</li>
+
+                                </ul>
+                                <h4><a href="#">Basic web design for beginer course</a></h4>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Minima, incidunt aspernatur ipsa! Lorem ipsum dolor sit amet consectetur adipisicing
+                                    elit. Cumque, libero.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </section>
+        <!-- Blog Section End  -->
+
 
         <!-- Add Bottom to top  -->
         <section class="back_to_top">
@@ -723,20 +616,25 @@
         <!-- Add Bottom to top end -->
 
 
-        <div class="modal_box">
+        {{-- <div class="modal_box">
             <div class="modal_content">
-                <span class="close">&times;</span>
-                <img src="{{ asset('frontend/assets/img/banner/modal.webp') }}" class="img-fluid rounded-top" alt="">
+                <span class="close"><i class="fas fa-xmark"></i></span>
+                <img src="{{ asset('frontend/assets/img/banner/bd_flag.jpg') }}" class="img-fluid rounded-top"
+                    alt="">
                 <button class="btn btn-primary">Click Here</button>
             </div>
-        </div>
+        </div> --}}
+
     </main>
 
-    <!-- footer start  -->
+
+
+
+    <!-- Footer start  -->
     <footer class="footer">
         <div class="container">
             <div class="main_footer">
-                <div class="row" data-aos="fade-up" data-aos-duration="1000">
+                <div class="row">
                     <div class="col-md-3 col-sm-6">
                         <h5 class="footer_subtitle">Contact Us</h5>
                         <ul>
@@ -751,11 +649,11 @@
                         <h5 class="footer_subtitle">Quick Link</h5>
                         <ul>
                             <li><a href="index.html#about_us">About Us</a></li>
-                            <li><a href="#">Blog</a></li>
+                            <li><a href="./blog.html">Blog</a></li>
                             <li><a href="#">News</a></li>
                             <li><a href="#">Events</a></li>
                             <li><a href="./Registation1.html">Registaion</a></li>
-                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="./contact.html">Contact Us</a></li>
                         </ul>
                     </div>
 
@@ -784,7 +682,7 @@
                 </div>
             </div>
 
-            <div class="row" data-aos="fade-up" data-aos-duration="1000">
+            <div class="row">
                 <div class="footer_bottom d-flex justify-content-between">
                     <div class="footer_bottom_left">
                         Copyright © 2022 Sahos Mia. All right reserved
@@ -842,8 +740,6 @@
 
     <script>
         lightbox.option({
-            //   'resizeDuration': 200,
-            //   'wrapAround': true,
             alwaysShowNavOnTouchDevices: true,
             showImageNumberLabel: false,
         });

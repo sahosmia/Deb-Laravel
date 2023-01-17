@@ -27,14 +27,18 @@
                                         <th>#</th>
                                         <th>Image</th>
                                         <th>Title</th>
+                                        <th>Added By</th>
+                                        <th>Creatd At</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                     @forelse ($galleries as $k => $item)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td><img class="d-block rounded" style="width:50px;" src="{{ asset('upload/gallery') }}/{{ $item->image }}" alt="{{ $item->image }}"></td>
+                                            <td><img class="d-block rounded" style="max-width:50px;" src="{{ asset('upload/gallery') }}/{{ $item->image }}" alt="{{ $item->image }}"></td>
                                             <td>{{ $item->title }}</td>
+                                            <td>{{ optional($item->user)->name }}</td>
+                                            <td>{!! getCreatedAT($item->created_at) !!}</td>
                                             <td>{!! is_active($item->is_active) !!}</td>
 
                                             <td>

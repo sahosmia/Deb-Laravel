@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CourseManagement\BatchController;
 use App\Http\Controllers\Admin\CourseManagement\StudentController;
+use App\Http\Controllers\Admin\GenaralContent\BlogController;
 use App\Http\Controllers\Admin\GenaralContent\CounterController;
 use App\Http\Controllers\Admin\GenaralContent\GalleryController;
 use App\Http\Controllers\Admin\GenaralContent\NoticeController;
@@ -49,13 +50,14 @@ Route::middleware('auth')->group(function () {
         Route::get('change-satatus/students/{student}/decision/{decision}', [StudentController::class, 'students_status']);
 
         // Genaral Content
-        Route::resource('testimonials', TestimonialController::class);
-        Route::resource('teams', TeamController::class);
-        Route::resource('questions', QuestionController::class);
+        Route::resource('blogs', BlogController::class);
+        Route::resource('counters', CounterController::class);
         Route::resource('galleries', GalleryController::class);
         Route::resource('notices', NoticeController::class);
+        Route::resource('questions', QuestionController::class);
+        Route::resource('teams', TeamController::class);
+        Route::resource('testimonials', TestimonialController::class);
         Route::resource('why-chooses', WhyChooseController::class);
-        Route::resource('counters', CounterController::class);
     });
 
     // Frontend Route
