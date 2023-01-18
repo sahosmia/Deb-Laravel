@@ -85,7 +85,7 @@ class BlogController extends Controller
             unlink(public_path('upload/blog/'.$currentImage));
 
             $image = Image::make($request->file('image'));
-            $imageName = 'Blog-'.time().'.'.$request->file('image')->getClientOriginalExtension();
+            $imageName = 'blog-'.time().'.'.$request->file('image')->getClientOriginalExtension();
             $destinationPath = public_path('upload/blog/');
             $image->resize(600,400);
             $image->save($destinationPath.$imageName);

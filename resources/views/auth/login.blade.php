@@ -11,7 +11,7 @@
         </div>
 
         <h2>Log In</h2>
-        
+
         @include('auth.layouts.status')
 
         <form  method="POST" action="{{ route('loginSubmit') }}">

@@ -19,6 +19,10 @@ class Batch extends Model
         "created_at","updated_at"
     ];
 
-    
+    public function batch()
+    {
+        return $this->belongsTo(Batch::class, 'id', 'batch_id');
+    }
+
 
 }

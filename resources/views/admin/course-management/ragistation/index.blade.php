@@ -24,8 +24,7 @@
                                         <th>#</th>
                                         <th>Name</th>
                                         <th>Age</th>
-                                        <th>Social</th>
-                                        <th>Contact</th>
+                                        <th>Address</th>
                                         <th>Decision</th>
                                         <th>Action</th>
                                     </tr>
@@ -35,19 +34,7 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ optional($item->user)->name }}</td>
                                             <td>{{ getBirthYear($item->date_of_birth) }}</td>
-                                            <td>
-                                                <ul>
-                                                    <li>Facebook : {{ $item->facebook_link }}</li>
-                                                    <li>Linkedin : {{ $item->linkedin_link }}</li>
-                                                </ul>
-                                            </td>
-                                            <td>
-                                                <ul>
-                                                    <li>Address : {{ $item->address }}</li>
-                                                    <li>Phone : {{ $item->phone }}</li>
-                                                    <li> Whatsup: {{ $item->whatsup }}</li>
-                                                </ul>
-                                            </td>
+                                            <td>{{ $item->address }}</td>
 
                                             <td>
 
@@ -70,13 +57,16 @@
                                                     <div class="dropdown-menu" x-placement="bottom-start"
                                                         style="position: absolute; transform: translate3d(0px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
                                                         <a class="dropdown-item has-icon"
-                                                            href="{{ route('admin.students.edit', $item->id) }}"><i
+                                                            href="{{ route('admin.ragistations.show', $item->id) }}"><i
+                                                                class="far fa-heart"></i> Details</a>
+                                                        <a class="dropdown-item has-icon"
+                                                            href="{{ route('admin.ragistations.edit', $item->id) }}"><i
                                                                 class="far fa-heart"></i> Edit</a>
                                                         <a class="dropdown-item has-icon"
-                                                            href="{{ route('admin.students.destroy', $item->id) }}"><i
+                                                            href="{{ route('admin.ragistations.destroy', $item->id) }}"><i
                                                                 class="far fa-heart"></i> Delete</a>
                                                         <!-- delete -->
-                                                        {{-- <form action="{{ route('admin.students.destroy', $item->id) }}"
+                                                        {{-- <form action="{{ route('admin.ragistations.destroy', $item->id) }}"
                                                             method="post">
                                                             @csrf
                                                             @method('DELETE')
@@ -117,7 +107,7 @@
         action.addEventListener('change', function(e) {
             var student = e.target.getAttribute('data');
             var decision = action.value;
-            var url = `http://127.0.0.1:8000/admin/change-satatus/students/${student}/decision/${decision}`;
+            var url = `http://127.0.0.1:8000/admin/change-satatus/ragistations/${student}/decision/${decision}`;
             window.location.href = url;
         })
     </script>

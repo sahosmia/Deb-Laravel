@@ -23,11 +23,11 @@ class LoginController extends Controller
     public function loginSubmit(LoginSubmitRequest $request){
         $credentials = $request->only('email', 'password');
 
-        if (Auth::attempt($credentials)) {
-            if(auth()->user()->role_id == 1){
+        if (Auth::attempt($credentials, $request->remember)) {
+            // if(auth()->user()->role_id == 1){
                 return redirect()->route('frontend.index');
-            }
-           return redirect()->route('admin.home')->withSuccess('Signed in');
+            // }
+        //    return redirect()->route('admin.home')->withSuccess('Signed in');
         }
         return back()->with('error', "Your email or password is wrong.");
     }
@@ -37,7 +37,7 @@ class LoginController extends Controller
     // Logout
     public function logout(){
         Auth::logout();
-        return redirect()->route('login')->with('success', "Your are success to logout");
+        return redirect()->route('login');
     }
 
 

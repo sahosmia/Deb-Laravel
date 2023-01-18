@@ -35,7 +35,7 @@ class RegisterController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => $request->password,
-            'role_id' => 2,
+            'role_id' => 1,
             'otp' => $otp,
             'time' => Carbon::now(),
         ]);
@@ -63,10 +63,10 @@ class RegisterController extends Controller
                     'name' => $user_data['name'],
                     'email' => $user_data['email'],
                     'password' => Hash::make($user_data['password']),
-                    'role_id' => 2,
+                    'role_id' => 1,
                 ]);
 
-                $user->assignRole(2);
+                $user->assignRole(1);
 
                 $credentials = [
                     'email' => $user_data['email'],
@@ -74,15 +74,9 @@ class RegisterController extends Controller
                 ];
 
                 if (Auth::attempt($credentials)) {
-                    if (auth()->user()->role_id == 1) {
-                        return redirect()->route('frontend.index');
-                    }
-
-                    return redirect()
-                        ->route('admin.home')
-                        ->withSuccess('Signed in');
+                    return redirect()->route('frontend.index');
                 }
-                return back()->with('error', 'something is error.');
+                return back()->with('error', 'Something is error.');
             }
             return back()->with('error', 'Your otp code is wrong. Plese check again');
         }

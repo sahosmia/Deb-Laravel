@@ -8,7 +8,7 @@
     <section class="section">
         <div class="section-header">
             <h1>User Information Edit</h1>
-            <a href="{{ route('admin.students.index', $data->batch_id) }}" class="btn btn-primary  ml-auto">Back</a>
+            <a href="{{ route('admin.ragistations.index', $data->batch_id) }}" class="btn btn-primary  ml-auto">Back</a>
         </div>
 
         <div class="section-body">
@@ -19,7 +19,7 @@
                             <h4>Edit Batch</h4>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('admin.students.update', $data->id) }}" method="POST">
+                            <form action="{{ route('admin.ragistations.update', $data->id) }}" method="POST">
                                 @csrf
                                 {{-- @method('PUT') --}}
                                 <!-- Name  -->
@@ -70,7 +70,7 @@
                                 <!-- Whatsapp Number  -->
                                 <div class="form-group">
                                     <label>Whatsapp Number <span class="mandatory">*</span></label>
-                                    <input type="text" name="whatsup" value="{{ $data->whatsup }}" class="form-control">
+                                    <input type="text" name="whatsapp" value="{{ $data->whatsapp }}" class="form-control">
                                 </div>
 
                                 <!-- Batch  -->

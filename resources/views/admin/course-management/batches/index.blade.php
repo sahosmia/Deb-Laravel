@@ -18,7 +18,6 @@
                     <div class="card">
                         <div class="card-header">
                             <h4>All Batch </h4>
-
                         </div>
                         <div class="card-body p-0">
                             <div class="table-responsive">
@@ -54,7 +53,7 @@
                                                                     class="far fa-file d-block"></i> Delete</button>
                                                         </form>
                                                         <a class="dropdown-item has-icon"
-                                                            href="{{ route('admin.students.index', $item->id) }}"><i
+                                                            href="{{ route('admin.ragistations.index', $item->id) }}"><i
                                                                 class="far fa-heart"></i> Students</a>
 
                                                     </div>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CourseManagement\BatchController;
+use App\Http\Controllers\Admin\CourseManagement\RagistationController;
 use App\Http\Controllers\Admin\CourseManagement\StudentController;
 use App\Http\Controllers\Admin\GenaralContent\BlogController;
 use App\Http\Controllers\Admin\GenaralContent\CounterController;
@@ -25,6 +26,9 @@ use App\Http\Controllers\Admin\UserManagement\PermissionController;
 use App\Http\Controllers\Admin\UserManagement\RoleController;
 use App\Http\Controllers\Admin\UserManagement\ModuleController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Frontend\FrontendBlogController;
+use App\Http\Controllers\Frontend\FrontendProfileController;
+use App\Http\Controllers\Frontend\FrontendRagistationController;
 
 Route::middleware('auth')->group(function () {
 
@@ -43,11 +47,12 @@ Route::middleware('auth')->group(function () {
         // Route::get('batches/students/{id}', [BatchController::class, 'students'])->name('batches.students');
         Route::resource('batches', BatchController::class);
 
-        Route::get('students/{batch}', [StudentController::class, 'index'])->name('students.index');
-        Route::get('students/edit/{id}', [StudentController::class, 'edit'])->name('students.edit');
-        Route::post('students/update/{id}', [StudentController::class, 'update'])->name('students.update');
-        Route::get('students/delete/{student}', [StudentController::class, 'destroy'])->name('students.destroy');
-        Route::get('change-satatus/students/{student}/decision/{decision}', [StudentController::class, 'students_status']);
+        Route::get('ragistations/{batch}', [RagistationController::class, 'index'])->name('ragistations.index');
+        Route::get('ragistations/edit/{id}', [RagistationController::class, 'edit'])->name('ragistations.edit');
+        Route::get('ragistations/show/{id}', [RagistationController::class, 'show'])->name('ragistations.show');
+        Route::post('ragistations/update/{id}', [RagistationController::class, 'update'])->name('ragistations.update');
+        Route::get('ragistations/delete/{student}', [RagistationController::class, 'destroy'])->name('ragistations.destroy');
+        Route::get('change-satatus/ragistations/{student}/decision/{decision}', [RagistationController::class, 'ragistations_status']);
 
         // Genaral Content
         Route::resource('blogs', BlogController::class);
@@ -63,8 +68,12 @@ Route::middleware('auth')->group(function () {
     // Frontend Route
     Route::name('frontend.')->group(function () {
         Route::get('/', [FrontendController::class, 'index'])->name('index');
-        Route::get('/ragistation', [FrontendController::class, 'ragistation'])->name('ragistation');
-        Route::post('/ragistationSubmit', [FrontendController::class, 'ragistationSubmit'])->name('ragistationSubmit');
+        Route::get('/ragistation', [FrontendRagistationController::class, 'index'])->name('ragistation.index');
+        Route::post('/ragistationSubmit', [FrontendRagistationController::class, 'ragistationSubmit'])->name('ragistation.submit');
+
+        Route::get('/blog/{slug}', [FrontendBlogController::class, 'details'])->name('blog.details');
+
+        Route::get('/profile', [FrontendProfileController::class, 'index'])->name('profile.index');
     });
 
     // Route::view('/no-access', [FrontendController::class, 'noAccess'])->name('noAccess');
@@ -90,13 +99,7 @@ Route::get('/password-reset/{email}/{id}', [ForgotPasswordController::class, 'pa
 Route::post('/password-reset-submit', [ForgotPasswordController::class, 'passwordResetSubmit'])->name('passwordResetSubmit');
 
 
-//
-//
-//
-//
-// /
-// /
-//
+
 // /
 //
 Route::get('/text', function () {

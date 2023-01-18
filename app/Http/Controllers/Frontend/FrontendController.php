@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Batch;
+use App\Models\Blog;
 use App\Models\Counter;
 use App\Models\Gallery;
 use App\Models\Notice;
@@ -20,6 +21,7 @@ class FrontendController extends Controller
 
     public function index()
     {
+        $blogs = Blog::with('comments',)->where("is_active", 1)->take(3)->get();
         $counters = Counter::where("is_active", 1)->take(4)->get();
         $notices = Notice::where("is_active", 1)->take(4)->get();
         $galleries = Gallery::where("is_active", 1)->take(8)->get();
@@ -28,8 +30,9 @@ class FrontendController extends Controller
         $testimonials = Testimonial::where("is_active", 1)->get();
         $teams = Team::where("is_active", 1)->get();
 
-// return $counters;
+// return $blogs;
         return view('frontend.index',[
+            "blogs" => $blogs,
             "counters" => $counters,
             "galleries" => $galleries,
             "notices" => $notices,

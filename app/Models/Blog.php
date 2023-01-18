@@ -23,5 +23,15 @@ class Blog extends Model
         return $this->hasOne(User::class, 'id', 'added_by');
     }
 
+    public function comments()
+    {
+        return $this->hasMany(BlogComment::class)->whereNull('parent_id');
+    }
+
+    public function comments_count()
+    {
+        return $this->hasMany(BlogComment::class);
+    }
+
 
 }

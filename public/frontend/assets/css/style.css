@@ -1,6 +1,6 @@
 /*
-* Preloader 
-* Header 
+* Preloader
+* Header
 *	> Top Header
 *	> Navbar
 *
@@ -346,7 +346,7 @@ box-shadow:none; */
 
 
 
-.team, .profile_page, .question, .choose_us, .about_us, .blog, .contact, .registaion_form_section, 
+.team, .profile_page, .question, .choose_us, .about_us, .blog, .contact, .registaion_form_section,
 .registation_course, .testimonial, .registaion_details_section,.gallary{
 padding: 10px 0;
 }
@@ -441,7 +441,7 @@ margin: 0 0 35px;
 .choose_item h6 {
     font-weight: 600;
     line-height: 30px;
-    
+
 }
 .choose_item p {
 font-size: 14px;
@@ -626,11 +626,14 @@ overflow: hidden;
 .blog_sidebar .small_item .blog_img {
     width: 40%;
 }
-.blog_sidebar .small_item .blog_img img{}
+.blog_sidebar .small_item .blog_img img {
+    min-width: 80px;
+    max-width: 80px;
+}
 
 .blog_sidebar .small_item .item_content {
     padding: 0px 8px;
-    
+
 }
 
 .blog_sidebar .small_item h6{}
@@ -722,7 +725,7 @@ display: block;
     transform: translate(-50%, -50%);
     width: 70%;
     border: 3px solid #f1f1f1;
-   
+
 }
 
 /* gallery css end */
