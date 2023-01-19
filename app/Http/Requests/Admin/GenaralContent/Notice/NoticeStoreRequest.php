@@ -15,18 +15,13 @@ class NoticeStoreRequest extends FormRequest
     }
 
 
-
-
-
     public function rules()
     {
         return [
             "title" => "bail|required|string|min:3",
             "description" => "bail|required|string|min:3",
         ];
+
     }
-
-
-
 
 }

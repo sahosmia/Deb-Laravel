@@ -1,7 +1,7 @@
 @extends('admin.layouts.admin')
 
-@section('title', 'Ragistation User')
-@section('ragistations_menu', 'active')
+@section('title', 'Student')
+@section('students_menu', 'active')
 @section('course_management_dropdown', 'active')
 
 @section('content')
@@ -14,7 +14,7 @@
                 <div class="col-12 col-md-12 col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>All Ragistation User </h4>
+                            <h4>Student </h4>
 
                         </div>
                         <div class="card-body p-0">
@@ -25,7 +25,6 @@
                                         <th>Name</th>
                                         <th>Age</th>
                                         <th>Address</th>
-                                        {{-- <th>Decision</th> --}}
                                         <th>Action</th>
                                     </tr>
 
@@ -36,16 +35,7 @@
                                             <td>{{ getBirthYear($item->date_of_birth) }}</td>
                                             <td>{{ $item->address }}</td>
 
-                                            {{-- <td>
 
-                                                <select name="change_status" class="form-control change_status"
-                                                    data="{{ $item->id }}">
-                                                    <option @selected($item->status == 0) value="0">Pandding</option>
-                                                    <option @selected($item->status == 1) value="1">Complete</option>
-                                                    <option @selected($item->status == 2) value="2">Declean</option>
-                                                </select>
-
-                                            </td> --}}
 
                                             <td>
                                                 <div class="dropdown d-inline">
@@ -57,16 +47,14 @@
                                                     <div class="dropdown-menu" x-placement="bottom-start"
                                                         style="position: absolute; transform: translate3d(0px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
                                                         <a class="dropdown-item has-icon"
-                                                            href="{{ route('admin.ragistations.show', $item->id) }}"><i
+                                                            href="{{ route('admin.students.show', $item->id) }}"><i
                                                                 class="far fa-heart"></i> Details</a>
                                                         <a class="dropdown-item has-icon"
-                                                            href="{{ route('admin.ragistations.edit', $item->id) }}"><i
+                                                            href="{{ route('admin.students.edit', $item->id) }}"><i
                                                                 class="far fa-heart"></i> Edit</a>
+
                                                         <a class="dropdown-item has-icon"
-                                                            href="{{ route('admin.ragistations.approve', $item->id) }}"><i
-                                                                class="far fa-heart"></i> Approve</a>
-                                                        <a class="dropdown-item has-icon"
-                                                            href="{{ route('admin.ragistations.destroy', $item->id) }}"><i
+                                                            href="{{ route('admin.students.destroy', $item->id) }}"><i
                                                                 class="far fa-heart"></i> Delete</a>
                                                     </div>
                                                 </div>

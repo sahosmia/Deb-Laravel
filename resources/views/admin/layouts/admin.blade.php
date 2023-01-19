@@ -127,6 +127,12 @@
                             <ul class="dropdown-menu">
                                 <li class="@yield('batches_menu')"><a class="nav-link"
                                         href="{{ route('admin.batches.index') }}">Batch</a></li>
+
+                                <li class="@yield('students_menu')"><a class="nav-link"
+                                        href="{{ route('admin.students.index') }}">Student</a></li>
+
+                                <li class="@yield('ragistations_menu')"><a class="nav-link"
+                                        href="{{ route('admin.ragistations.index') }}">Ragistation</a></li>
                             </ul>
                         </li>
 

@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DEB - Home</title>
+    <title>DEB - @yield('title')</title>
     <link rel="shortcut icon" href="{{ asset('frontend/assets/img/logo/Final Logo DEB-ai (4).png') }}"
         type="image/x-icon" />
 
@@ -114,7 +114,7 @@
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                     <li><a class="dropdown-item" href="{{ route('frontend.profile.index') }}">Profile</a></li>
                                     <li><a class="dropdown-item" href="{{ route('admin.home') }}">Admin Panel</a>
-                                    <li><a class="dropdown-item" href="./profile-edit.html">Edit</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('frontend.profile.edit') }}">Edit</a></li>
                                     <li><a class="dropdown-item" href="./class.html">Class</a></li>
                                     <li><a class="dropdown-item" href="./rules-regulaion.html">Rules & Regulation</a>
                                     </li>

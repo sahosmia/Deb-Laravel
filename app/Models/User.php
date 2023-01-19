@@ -48,6 +48,7 @@ class User extends Authenticatable
         return $this->belongsTo(UserInformation::class, 'id', 'user_id');
     }
 
+
     public function batch()
     {
         return $this->hasOne(Batch::class, 'id', 'batch_id');

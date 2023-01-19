@@ -1,14 +1,14 @@
 @extends('admin.layouts.admin')
 
-@section('title', 'User Information Edit')
-@section('ragistations_menu', 'active')
+@section('title', 'Student Information Edit')
+@section('students_menu', 'active')
 @section('course_management_dropdown', 'active')
 
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>User Information Edit</h1>
-            <a href="{{ route('admin.ragistations.index', $data->batch_id) }}" class="btn btn-primary  ml-auto">Back</a>
+            <h1>Student Information Edit</h1>
+            {{-- <a href="{{ route('admin.students.index', $data->batch_id) }}" class="btn btn-primary  ml-auto">Back</a> --}}
         </div>
 
         <div class="section-body">
@@ -16,10 +16,10 @@
                 <div class="col-12 col-md-6 col-lg-6 m-auto">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Edit Batch</h4>
+                            <h4>Edit Student Information</h4>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('admin.ragistations.update', $data->id) }}" method="POST">
+                            <form action="{{ route('admin.students.update', $data->id) }}" method="POST">
                                 @csrf
                                 {{-- @method('PUT') --}}
                                 <!-- Name  -->
@@ -71,6 +71,13 @@
                                 <div class="form-group">
                                     <label>Drive Link </label>
                                     <input type="text" name="drive" value="{{ $data->drive }}"
+                                        class="form-control">
+                                </div>
+
+                                <!-- Drive Link  -->
+                                <div class="form-group">
+                                    <label>Payment Amount <span class="mandatory">*</span></label>
+                                    <input type="number" name="payment_amount" value="{{ $data->payment_amount }}"
                                         class="form-control">
                                 </div>
 

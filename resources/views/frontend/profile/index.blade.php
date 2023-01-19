@@ -1,4 +1,6 @@
 @extends('frontend.layouts.app')
+@section('title', 'Profie')
+
 @section('content')
 
 
@@ -33,14 +35,24 @@
                     <div class="col-md-4">
                         <div class="profile_image_card" data-aos="fade-up-right" data-aos-duration="1000">
                             <div class="profile_image_card_top">
-                                <img src="./assets/img/team/team-1.png" alt="">
+                                @if (auth()->user()->image != null)
+                                <img src="{{ asset('upload/user') }}/{{ auth()->user()->image }}" alt="{{ auth()->user()->image }}">
+                                @else
+                                <img src="{{ asset('default/profile.png') }}" alt="Profile Image">
+                                @endif
                                 <h6>{{ auth()->user()->name }}</h6>
                             </div>
                             <div class="profile_image_card_bottom">
                                 <ul>
                                     <li><span>Role : </span>{{ auth()->user()->role->name }}</li>
-                                    <li><span>Batch : </span>{{ auth()->user()->information->batch->title }}</li>
                                     <li><span>Join Date : </span>{{ auth()->user()->created_at->format("d M, Y")}}</li>
+                                    @if (auth()->user()->information->batch_id != null)
+                                    <li><span>Batch : </span>{{ auth()->user()->information->batch->title }}</li>
+                                    <li><span>Payment Every Month : </span>{{ auth()->user()->information->payment_amount}} TK</li>
+
+                                    @endif
+
+
                                 </ul>
                             </div>
 
@@ -53,22 +65,55 @@
                             <ul>
                                 <li><span>Name : </span>{{ auth()->user()->name }}</li>
                                 <li><span>Email : </span>{{ auth()->user()->email }}</li>
-                                <li><span>Age : </span>{{ getBirthYear(auth()->user()->information->date_of_birth) }}</li>
+                                @if (auth()->user()->information->date_of_birth != null)
+                                    <li><span>Age : </span>{{ getBirthYear(auth()->user()->information->date_of_birth) }}</li>
+                                @endif
+
+                                @if (auth()->user()->information->gender != null)
+                                    <li><span>Gender : </span>{{ getGender(auth()->user()->information->gender) }}</li>
+                                @endif
+
+                                @if (auth()->user()->information->blood != null)
+                                    <li><span>Blood : </span>{{ getBlood(auth()->user()->information->blood) }}</li>
+                                @endif
+                                @if (auth()->user()->information->profession != null)
+                                    <li><span>Profession : </span>{{ auth()->user()->information->profession }}</li>
+                                @endif
                             </ul>
                         </div>
 
                         <div class="profile_information_card" data-aos="fade-up-left" data-aos-duration="1000">
                             <h5 class="sub_title">Contact Information</h5>
                             <ul>
+                                @if (auth()->user()->information->phone != null)
                                 <li><span>Phone : </span>{{ auth()->user()->information->phone }}</li>
+                                @endif
+
+                                @if (auth()->user()->information->whatsapp != null)
                                 <li><span>Whatsapp : </span>{{ auth()->user()->information->whatsapp }}</li>
+                                @endif
+
+                                @if (auth()->user()->information->address != null)
                                 <li><span>Address : </span>{{ auth()->user()->information->address }}</li>
-                                <li><span>Social :</span>
+                                @endif
+
+
+                                <li>
                                     <ul class="profile_social">
-                                        <li><a href="{{ auth()->user()->information->facebook_link }}"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                        <li><a href="{{ auth()->user()->information->linkedin_link }}"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                                        @if (auth()->user()->information->facebook != null)
+                                        <li><a href="{{ auth()->user()->information->facebook }}"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                        @endif
+
+                                        @if (auth()->user()->information->linkedin != null)
+                                        <li><a href="{{ auth()->user()->information->linkedin }}"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                                        @endif
+
+                                        @if (auth()->user()->information->drive != null)
+                                        <li><a href="{{ auth()->user()->information->drive }}"><i class="fab fa-google-drive"></i></a></li>
+                                        @endif
                                     </ul>
                                 </li>
+
                             </ul>
                         </div>
                     </div>

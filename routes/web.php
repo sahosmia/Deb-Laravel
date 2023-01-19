@@ -47,9 +47,16 @@ Route::middleware('auth')->group(function () {
         // Route::get('batches/students/{id}', [BatchController::class, 'students'])->name('batches.students');
         Route::resource('batches', BatchController::class);
 
-        Route::get('ragistations/{batch}', [RagistationController::class, 'index'])->name('ragistations.index');
+        Route::get('students/{batch?}', [StudentController::class, 'index'])->name('students.index');
+        Route::get('students/edit/{id}', [StudentController::class, 'edit'])->name('students.edit');
+        Route::get('students/show/{id}', [StudentController::class, 'show'])->name('students.show');
+        Route::post('students/update/{id}', [StudentController::class, 'update'])->name('students.update');
+        Route::get('students/delete/{id}', [StudentController::class, 'destroy'])->name('students.destroy');
+
+        Route::get('ragistations', [RagistationController::class, 'index'])->name('ragistations.index');
         Route::get('ragistations/edit/{id}', [RagistationController::class, 'edit'])->name('ragistations.edit');
         Route::get('ragistations/show/{id}', [RagistationController::class, 'show'])->name('ragistations.show');
+        Route::get('ragistations/approve/{id}', [RagistationController::class, 'approve'])->name('ragistations.approve');
         Route::post('ragistations/update/{id}', [RagistationController::class, 'update'])->name('ragistations.update');
         Route::get('ragistations/delete/{student}', [RagistationController::class, 'destroy'])->name('ragistations.destroy');
         Route::get('change-satatus/ragistations/{student}/decision/{decision}', [RagistationController::class, 'ragistations_status']);
@@ -74,6 +81,10 @@ Route::middleware('auth')->group(function () {
         Route::get('/blog/{slug}', [FrontendBlogController::class, 'details'])->name('blog.details');
 
         Route::get('/profile', [FrontendProfileController::class, 'index'])->name('profile.index');
+        Route::get('/profile/edit', [FrontendProfileController::class, 'edit'])->name('profile.edit');
+        Route::post('/profile/update/other', [FrontendProfileController::class, 'updateOther'])->name('profile.update.other');
+        Route::post('/profile/update/genarel', [FrontendProfileController::class, 'updateGenarel'])->name('profile.update.genarel');
+        Route::post('/profile/update/password', [FrontendProfileController::class, 'updatePassword'])->name('profile.update.password');
     });
 
     // Route::view('/no-access', [FrontendController::class, 'noAccess'])->name('noAccess');

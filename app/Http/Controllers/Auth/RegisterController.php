@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\Auth\RegisterSubmitRequest;
 use App\Mail\RegisterOtpMail;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\UserInformation;
 use Carbon\Carbon;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
@@ -64,6 +65,11 @@ class RegisterController extends Controller
                     'email' => $user_data['email'],
                     'password' => Hash::make($user_data['password']),
                     'role_id' => 1,
+                ]);
+
+
+                UserInformation::create([
+                    'user_id' => $user->id,
                 ]);
 
                 $user->assignRole(1);

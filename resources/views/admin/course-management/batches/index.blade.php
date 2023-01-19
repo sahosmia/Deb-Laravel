@@ -32,7 +32,7 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $item->title }}</td>
-                                            <td>{{ $item->created_at }}</td>
+                                            <td>{{ getCreatedAT($item->created_at) }}</td>
 
                                             <td>
                                                 <div class="dropdown d-inline">
@@ -53,7 +53,7 @@
                                                                     class="far fa-file d-block"></i> Delete</button>
                                                         </form>
                                                         <a class="dropdown-item has-icon"
-                                                            href="{{ route('admin.ragistations.index', $item->id) }}"><i
+                                                            href="{{ route('admin.students.index', $item->id) }}"><i
                                                                 class="far fa-heart"></i> Students</a>
 
                                                     </div>

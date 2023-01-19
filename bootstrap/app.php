@@ -75,6 +75,40 @@ function getBirthYear($date){
     return "".Carbon::parse($date)->diffInYears(). " years";
 }
 
+function getGender($data){
+    switch ($data) {
+        case 1:
+            return "Male";
+        case 2:
+            return "Female";
+        default:
+            return "Other";
+    }
+}
+
+function getBlood($data){
+    switch ($data) {
+        case 1:
+            return "A+";
+        case 2:
+            return "B+";
+        case 3:
+            return "O+";
+        case 4:
+            return "AB+";
+        case 5:
+            return "A-";
+        case 6:
+            return "B-";
+        case 7:
+            return "O-";
+        case 8:
+            return "AB-";
+        default:
+            return "Other";
+    }
+}
+
 
 function getCreatedAT($date){
     $data = "";

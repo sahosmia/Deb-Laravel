@@ -7,19 +7,18 @@ use App\Models\Batch;
 use App\Models\Ragistation;
 use App\Models\StudentInformation;
 use App\Models\User;
+use App\Models\UserInformation;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 
 class RagistationController extends Controller
 {
 
-    public function index($batch)
+    public function index()
     {
-        $students = Ragistation::where('batch_id', $batch)->with('batch:id,title', 'user')->paginate();
-        $batch_name = Batch::find($batch)->title;
+        $students = Ragistation::latest()->paginate(10);
         return view('admin.course-management.ragistation.index', [
             'students' => $students,
-            'batch_name' => $batch_name,
         ]);
     }
 
@@ -33,23 +32,37 @@ class RagistationController extends Controller
 
 
 
-    public function approve($student, $decision)
+    public function approve($id)
     {
-        $data = Ragistation::find($student);
+        $data = Ragistation::find($id);
 
-        $user = User::find($student_information->user_id);
+        $new_data = [
+            'date_of_birth' => $data->date_of_birth,
+            'facebook' => $data->facebook,
+            'linkedin' => $data->linkedin,
+            'drive' => $data->drive,
+            'address' => $data->address,
+            'phone' => $data->phone,
+            'whatsapp' => $data->whatsapp,
+            'batch_id' => $data->batch_id,
+            'user_id' => $data->user_id,
+        ];
 
-            if($decision == 1){
-                $role_name = "Student";
-            }else{
-                $role_name = "User";
-            }
+
+        $user_information = UserInformation::where('user_id', $data->user_id)->first();
+
+            $user_information->update($new_data);
+
+        $user = User::find($data->user_id);
+
+        $role_name = "Student";
+
         $user->removeRole($user->role_id);
         $role = Role::where('name', $role_name)->first();
         $user->update(['role_id' => $role->id]);
         $user->assignRole($role_name);
-        $student_information->update(['status' => $decision]);
 
+        $data->delete();
         return back();
 
     }
@@ -63,7 +76,7 @@ class RagistationController extends Controller
         $data = Ragistation::find($id);
         $batches = Batch::all();
 
-        return view('admin.course-management.students.edit', [
+        return view('admin.course-management.ragistation.edit', [
             'data' => $data,
             'batches' => $batches,
         ]);
@@ -75,23 +88,21 @@ class RagistationController extends Controller
         $request->validate([
             'phone' => 'required',
             'whatsapp' => 'required',
-            'facebook_link' => 'required',
-            'linkedin_link' => 'required',
+            'facebook' => 'required',
+            'linkedin' => 'required',
             'batch_id' => 'required',
         ]);
 
-        StudentInformation::find($id)->update([
+        Ragistation::find($id)->update([
             'phone' => $request->phone,
             'whatsapp' => $request->whatsapp,
-            'facebook_link' => $request->facebook_link,
-            'linkedin_link' => $request->linkedin_link,
+            'facebook' => $request->facebook,
+            'linkedin' => $request->linkedin,
+            'drive' => $request->drive,
             'batch_id' => $request->batch_id,
-            'user_id' => auth()->id(),
             'address' => $request->address,
             'date_of_birth' => $request->date_of_birth,
         ]);
-
-
 
         return back()->with('success', 'Batch Update done');
     }

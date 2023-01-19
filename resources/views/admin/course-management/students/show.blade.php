@@ -1,7 +1,7 @@
 @extends('admin.layouts.admin')
 
 @section('title', 'Ragistation User Information')
-@section('ragistations_menu', 'active')
+@section('students_menu', 'active')
 @section('course_management_dropdown', 'active')
 
 @section('content')
@@ -81,22 +81,11 @@
                                     <p>{{ $data->drive }}</p>
                                 </div>
 
-
-
-
-
-                                {{-- <!-- Batch  -->
+                                <!-- Drive Link  -->
                                 <div class="form-group">
-                                    <label>Batch </label>
-                                    <select name="batch_id" class="form-control">
-                                        <option value="">Select</option>
-                                        @foreach ($batches as $item)
-                                            <option @selected($item->id == $data->batch_id) value="{{ $item->id }}">
-                                                {{ $item->title }}</option>
-                                        @endforeach
-
-                                    </select>
-                                </div> --}}
+                                    <label>Payment Amount </label>
+                                    <p>{{ $data->payment_amount }}</p>
+                                </div>
 
                         </div>
                     </div>
