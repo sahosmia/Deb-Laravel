@@ -18,12 +18,12 @@
             @csrf
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input name="email" type="text" class="form-control @error('email') is-invalid @enderror" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input name="email" type="text" class="form-control @error('email') is-invalid @enderror" id="exampleInputEmail1" value="{{ old('email') }}">
 
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input name="password" type="password" class="form-control @error('password') is-invalid @enderror" id="exampleInputPassword1">
+                <input name="password" type="password" class="form-control @error('password') is-invalid @enderror" id="exampleInputPassword1" value={{ old('pasword') }}>
 
             </div>
             <div class="row">

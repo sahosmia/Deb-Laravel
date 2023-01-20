@@ -1,4 +1,5 @@
 @extends('frontend.layouts.app')
+@section('title', 'Ragistation')
 @section('content')
         <!-- banner section start  -->
         <section class="page_banner registation_form_page">
