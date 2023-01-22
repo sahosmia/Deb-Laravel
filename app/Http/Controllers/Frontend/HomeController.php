@@ -16,7 +16,7 @@ use App\Models\WhyChoose;
 use Illuminate\Http\Request;
 
 
-class FrontendController extends Controller
+class HomeController extends Controller
 {
 
     public function index()

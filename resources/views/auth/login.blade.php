@@ -3,8 +3,6 @@
 
 @section('content')
 
-
-
     <div class="form_side col-md-6">
         <div class="logo">
             <img src="{{ asset('frontend/assets/img/logo/DEB-Grean-Logo.png') }}" alt="">
@@ -19,15 +17,14 @@
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
                 <input name="email" type="text" class="form-control @error('email') is-invalid @enderror" id="exampleInputEmail1" value="{{ old('email') }}">
-
             </div>
+
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Password</label>
                 <input name="password" type="password" class="form-control @error('password') is-invalid @enderror" id="exampleInputPassword1" value={{ old('pasword') }}>
-
             </div>
-            <div class="row">
 
+            <div class="row">
                 <div class="form-check mb-3 col-md-6">
                     <input type="checkbox" class="form-check-input" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                     <label class="form-check-label" for="remember" >Remember Me</label>
@@ -50,6 +47,12 @@
         <p class="register_link">Not register yet? <a href="{{ route('register') }}" class="color_primary">Create an account</a>
         </p>
 
+        <ul class="d-flex pt-5 mx-auto">
+            <li class="me-2"><a href="{{ route('front.index') }}">Home</a></li>
+            <li class="mx-2"><a href="#">About</a></li>
+            <li class="mx-2"><a href="#">Home</a></li>
+            <li class="mx-2"><a href="#">Home</a></li>
+        </ul>
 
     </div>
     <div class="content_side col-md-6">

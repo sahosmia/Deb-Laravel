@@ -9,7 +9,9 @@
     <!-- General CSS Files -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- CSS Libraries -->
     @yield('exta-css')
@@ -34,15 +36,14 @@
                         <li>
                             <a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i
                                     class="fas fa-search"></i></a>
-                                </li>
+                        </li>
                     </ul>
 
                 </form>
                 <ul class="navbar-nav navbar-right">
 
                     <li class="dropdown">
-                        <a href="#" data-toggle="dropdown"
-                            class="nav-link nav-link-lg nav-link-user">
+                        <a href="#" data-toggle="dropdown" class="nav-link nav-link-lg nav-link-user">
                             <div class="d-sm-none d-lg-inline-block"><i class="fas fa-plus"></i></div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
@@ -106,8 +107,8 @@
                                     class="fas fa-columns"></i> <span>User Management</span></a>
 
                             <ul class="dropdown-menu">
-                                    <li class="@yield('users_menu')"><a class="nav-link"
-                                            href="{{ route('admin.users.index') }}">User</a></li>
+                                <li class="@yield('users_menu')"><a class="nav-link"
+                                        href="{{ route('admin.users.index') }}">User</a></li>
 
                                 <li class="@yield('roles_menu')"><a class="nav-link"
                                         href="{{ route('admin.roles.index') }}">Role</a></li>
@@ -139,27 +140,27 @@
                         <!-- Genaral Content -->
                         <li class="nav-item dropdown @yield('genaral_content_dropdown')">
                             <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
-                                class="fas fa-columns"></i> <span>Genaral Content</span></a>
+                                    class="fas fa-columns"></i> <span>Genaral Content</span></a>
 
                             <ul class="dropdown-menu">
 
                                 <li class="@yield('blogs_menu')"><a class="nav-link"
-                                    href="{{ route('admin.blogs.index') }}">Blog</a></li>
+                                        href="{{ route('admin.blogs.index') }}">Blog</a></li>
 
                                 <li class="@yield('counters_menu')"><a class="nav-link"
-                                    href="{{ route('admin.counters.index') }}">Counter</a></li>
+                                        href="{{ route('admin.counters.index') }}">Counter</a></li>
 
                                 <li class="@yield('galleries_menu')"><a class="nav-link"
-                                    href="{{ route('admin.galleries.index') }}">Gallery</a></li>
+                                        href="{{ route('admin.galleries.index') }}">Gallery</a></li>
 
                                 <li class="@yield('notices_menu')"><a class="nav-link"
-                                    href="{{ route('admin.notices.index') }}">Notice</a></li>
+                                        href="{{ route('admin.notices.index') }}">Notice</a></li>
 
                                 <li class="@yield('questions_menu')"><a class="nav-link"
-                                    href="{{ route('admin.questions.index') }}">Question</a></li>
+                                        href="{{ route('admin.questions.index') }}">Question</a></li>
 
                                 <li class="@yield('teams_menu')"><a class="nav-link"
-                                    href="{{ route('admin.teams.index') }}">Team</a></li>
+                                        href="{{ route('admin.teams.index') }}">Team</a></li>
 
                                 <li class="@yield('testimonials_menu')"><a class="nav-link"
                                         href="{{ route('admin.testimonials.index') }}">Testimonial</a></li>
@@ -170,8 +171,9 @@
                         </li>
 
                         <!-- Web Page -->
-                        <li><a target="_blank" class="nav-link" href="{{ route('frontend.index') }}"><i class="fas fa-fire"></i>
-                                <span>Web Page</span></a></li>
+                        {{-- <li><a target="_blank" class="nav-link" href="{{ route('frontend.index') }}"><i
+                                    class="fas fa-fire"></i>
+                                <span>Web Page</span></a></li> --}}
                     </ul>
 
                     <div class="mt-4 mb-4 p-3 hide-sidebar-mini">

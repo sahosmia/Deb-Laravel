@@ -29,7 +29,7 @@
                     @else
 
 
-                    <form class="row g-3 registaion_form" action="{{ route('frontend.ragistation.submit') }}"
+                    <form class="row g-3 registaion_form" action="{{ route('front.ragistation.submit') }}"
                         method="POST">
 
                         @csrf

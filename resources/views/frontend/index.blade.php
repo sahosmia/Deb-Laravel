@@ -351,7 +351,7 @@
                     </div>
                     <div class="col-md-6 d-flex align-items-center justify-content-end">
                         <a href="./registation_details.html" class=" button-48"><span>Details</span></a>
-                        <a href="{{ route('frontend.ragistation.index') }}" class=" button-49"><span>Registaion Here</span></a>
+                        <a href="{{ route('front.ragistation.index') }}" class=" button-49"><span>Registaion Here</span></a>
                     </div>
                 </div>
             </div>
@@ -418,10 +418,10 @@
                             <img src="{{ asset('upload/blog') }}/{{ $blog->image }}" alt="{{ $blog->image }}">
                             <div class="blog_item_content">
                                 <ul>
-                                    <li><i class="fa-solid fa-heart"></i> 50 Heart</li>
-                                    <li><i class="fa-solid fa-comment"></i> {{ $blog->comments_count->count() }} Comment</li>
+                                    <li><i class="fa-solid fa-calendar-days"></i> {{ getCreatedAT($blog->created_at) }}</li>
+                                <li><i class="fa-solid fa-comment"></i> {{ $blog->comments_count->count() }} Comment</li>
                                 </ul>
-                                <h4><a href="{{ route('frontend.blog.details', $blog->slug) }}">{{ $blog->title }}</a></h4>
+                                <h4><a href="{{ route('front.blog.details', $blog->slug) }}">{{ $blog->title }}</a></h4>
                                 <p>{{ $blog->short_description }}</p>
                             </div>
                         </div>
@@ -443,14 +443,14 @@
         <!-- Add Bottom to top end -->
 
 
-        {{-- <div class="modal_box">
+        <div class="modal_box">
             <div class="modal_content">
                 <span class="close"><i class="fas fa-xmark"></i></span>
                 <img src="{{ asset('frontend/assets/img/banner/bd_flag.jpg') }}" class="img-fluid rounded-top"
                     alt="">
                 <button class="btn btn-primary">Click Here</button>
             </div>
-        </div> --}}
+        </div>
 
 
 

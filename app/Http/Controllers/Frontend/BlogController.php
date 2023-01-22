@@ -7,7 +7,7 @@ use App\Models\Blog;
 use Illuminate\Http\Request;
 
 
-class FrontendBlogController extends Controller
+class BlogController extends Controller
 {
 
     public function index()
@@ -17,13 +17,16 @@ class FrontendBlogController extends Controller
 
         return view('frontend.blog.index',[
             "blogs" => $blogs,
-
         ]);
     }
 
+  
+
+
+
     public function details($slug){
-            $data = Blog::with('comments.replies')->where("slug", $slug)->first();
-            $latest_blogs = Blog::where("is_active", 1)->take(3)->latest()->get();
+            $data = Blog::with('comments')->where("slug", $slug)->first();
+            $latest_blogs = Blog::where("is_active", 1)->whereNot('slug', $slug)->take(3)->latest()->get();
             return view("frontend.blog.details", [
                 "data" => $data,
                 "latest_blogs" => $latest_blogs,

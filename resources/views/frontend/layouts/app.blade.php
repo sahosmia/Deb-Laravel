@@ -10,7 +10,8 @@
         type="image/x-icon" />
 
     <!-- Bootstrap Css Link  -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" /> --}}
+    <link href="{{ asset('frontend/assets/css/bootstrap.min.css') }}" rel="stylesheet" />
 
     <!-- Google Font Link  -->
     <link
@@ -21,13 +22,15 @@
         rel="stylesheet">
 
     <!-- Font Awesome Link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <link href="{{ asset('frontend/assets/css/all.min.css') }}" rel="stylesheet" />
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" /> --}}
 
     <!-- Vendor Css Link  -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/vendor/css/owl.carousel.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/assets/vendor/css/owl.theme.default.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('frontend/assets/vendor/css/lightbox.min.css') }}" />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    {{-- <link rel="stylesheet" href="{{ asset('frontend/assets/vendor/css/lightbox.min.css') }}" /> --}}
+    <link rel="stylesheet" href="{{ asset('frontend/assets/vendor/css/aos.css') }}" />
+    {{-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> --}}
 
     <!-- External Css Link  -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}" />
@@ -49,16 +52,16 @@
                 <div class="row">
                     <div class="col-md-8 col-9 top_header_left">
                         <ul class="top_header_contact_ul">
-                            <li><i class="fa-solid fa-phone-flip"></i> 01952827301</li>
-                            <li><i class="fa-solid fa-envelope"></i> deb@gmail.com</li>
+                            <li><i class="fa-solid fa-phone-flip"></i> {{ $settings->phone }}</li>
+                            <li><i class="fa-solid fa-envelope"></i> {{ $settings->email }}</li>
                         </ul>
                     </div>
                     <div class="col-md-4 col-3  top_header_right">
                         <ul class="top_header_social_ul">
                             <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                            <li><a href="{{ $settings->facebook }}"><i class="fa-brands fa-facebook-f"></i></a></li>
                             <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                            <li><a href="{{ $settings->linkedin }}"><i class="fa-brands fa-linkedin-in"></i></a></li>
                             <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
                         </ul>
                     </div>
@@ -69,7 +72,7 @@
         <!-- nav start -->
         <nav class="navbar  navbar-expand-sm navbar-light">
             <div class="container">
-                <a class="navbar-brand" href="{{ route('frontend.index') }}">
+                <a class="navbar-brand" href="{{ route('front.index') }}">
                     <img src="{{ asset('frontend/assets/img/logo/DEB-Grean-Logo.png') }}" alt=""
                         class="w_100" />
                 </a>
@@ -83,7 +86,7 @@
                 <div class="collapse navbar-collapse" id="collapsibleNavId">
                     <ul class="navbar-nav m-auto mt-2 mt-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('frontend.index') }}">Home</a>
+                            <a class="nav-link" href="{{ route('front.index') }}">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="index.html#about_us">About</a>
@@ -92,38 +95,50 @@
                             <a class="nav-link" href="gallery.html">Gallary</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Event</a>
+                            <a class="nav-link" href="{{ route('front.blog.index') }}">Blog</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="./notice.html">Notice</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="./contact.html">Contact</a>
+                            <a class="nav-link" href="{{ route('front.contact.index') }}">Contact</a>
                         </li>
                     </ul>
 
-                    <div class="navbar_auth">
-                        <ul>
-                            <div class="dropdown profile_dropdown">
-                                <button class="dropdown-toggle" type="button" id="dropdownMenuButton1"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    <!-- <i class="fa-solid fa-user"></i>  -->
-                                    {{ auth()->user()->name }}
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="{{ route('frontend.profile.index') }}">Profile</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('admin.home') }}">Admin Panel</a>
-                                    <li><a class="dropdown-item" href="{{ route('frontend.profile.edit') }}">Edit</a></li>
-                                    <li><a class="dropdown-item" href="./class.html">Class</a></li>
-                                    <li><a class="dropdown-item" href="./rules-regulaion.html">Rules & Regulation</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
-                                </ul>
-                            </div>
-                        </ul>
-                    </div>
 
+
+
+                    @auth
+                        <div class="navbar_auth">
+                            <ul>
+                                <div class="dropdown profile_dropdown">
+                                    <button class="dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        <!-- <i class="fa-solid fa-user"></i>  -->
+                                        {{ auth()->user()->name }}
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                        <li><a class="dropdown-item"
+                                                href="{{ route('front.profile.index') }}">Profile</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('admin.home') }}">Admin Panel</a>
+                                        <li><a class="dropdown-item" href="{{ route('front.profile.edit') }}">Edit</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="./class.html">Class</a></li>
+                                        <li><a class="dropdown-item" href="./rules-regulaion.html">Rules & Regulation</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
+                                    </ul>
+                                </div>
+                            </ul>
+                        </div>
+                        @else
+                        <ul>
+                            <li><a class="text-dark" href="{{ route('login') }}">Sing In</a></li>
+                            <li>/</li>
+                            <li><a class="text-dark" href="{{ route('register') }}">Sing Up</a></li>
+                        </ul>
+                    @endauth
                 </div>
 
 
@@ -219,14 +234,14 @@
     <div id="fb-customer-chat" class="fb-customerchat">
     </div>
 
-    <script>
+    {{-- <script>
         var chatbox = document.getElementById('fb-customer-chat');
         chatbox.setAttribute("page_id", "104511779002223");
         chatbox.setAttribute("attribution", "biz_inbox");
-    </script>
+    </script> --}}
 
     <!-- Your SDK code -->
-    <script>
+    {{-- <script>
         window.fbAsyncInit = function() {
             FB.init({
                 xfbml: true,
@@ -242,19 +257,21 @@
             js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
-    </script>
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    </script> --}}
+    <script src="{{ asset('frontend/assets/js/jquery.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/bootstrap.min.js') }}"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script> --}}
     <script src="{{ asset('frontend/assets/vendor/js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('frontend/assets/vendor/js/lightbox.min.js') }}"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    {{-- <script src="{{ asset('frontend/assets/vendor/js/lightbox.min.js') }}"></script> --}}
+    <script src="{{ asset('frontend/assets/vendor/js/aos.js') }}"></script>
+    {{-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> --}}
     <script src="{{ asset('frontend/assets/js/main.js') }}"></script>
 
     <script>
-        lightbox.option({
-            alwaysShowNavOnTouchDevices: true,
-            showImageNumberLabel: false,
-        });
+        // lightbox.option({
+        //     alwaysShowNavOnTouchDevices: true,
+        //     showImageNumberLabel: false,
+        // });
 
 
         AOS.init({

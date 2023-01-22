@@ -23,6 +23,10 @@ class BlogComment extends Model
         return $this->belongsTo(User::class, 'id', 'user_id');
     }
 
+    public function commentUser(){
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
+
     public function replies()
     {
         return $this->hasMany(BlogComment::class, 'parent_id');

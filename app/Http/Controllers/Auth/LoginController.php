@@ -25,7 +25,7 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials, $request->remember)) {
             // if(auth()->user()->role_id == 1){
-                return redirect()->route('frontend.index');
+                return redirect()->route('front.index');
             // }
         //    return redirect()->route('admin.home')->withSuccess('Signed in');
         }

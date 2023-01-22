@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Image;
 
-class FrontendProfileController extends Controller
+class ProfileController extends Controller
 {
 
     public function index()
