@@ -43,7 +43,7 @@
                     <div class="profile_information_card">
 
                         <h5 class="sub_title">Genarel Information</h5>
-                        <form action="{{ route('frontend.profile.update.genarel') }}" method="post"
+                        <form action="{{ route('front.profile.update.genarel') }}" method="post"
                             enctype="multipart/form-data">
                             @csrf
 
@@ -91,7 +91,7 @@
                     <div class="profile_information_card">
 
                         <h5 class="sub_title">Other Information</h5>
-                        <form action="{{ route('frontend.profile.update.other') }}" method="post">
+                        <form action="{{ route('front.profile.update.other') }}" method="post">
 
                             @csrf
                             <!-- Gender -->
@@ -189,7 +189,7 @@
                     <div class="profile_information_card">
 
                         <h5 class="sub_title">Password Update</h5>
-                        <form action="{{ route('frontend.profile.update.password') }}" method="post">
+                        <form action="{{ route('front.profile.update.password') }}" method="post">
 
                             @csrf
                             <!-- Current Password -->

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Message;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -16,7 +18,11 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('admin.home');
+        return view('admin.dashboard', [
+            'users' => User::latest()->take(2)->get(),
+            'messages' => Message::latest()->take(2)->get(),
+            'roles' => Role::all(),
+        ]);
     }
 
 

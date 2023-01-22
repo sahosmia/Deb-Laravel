@@ -18,10 +18,7 @@ class BlogCommentController extends Controller
         ]);
 
         $input['user_id'] = auth()->user()->id;
-
-        // return $input;
         BlogComment::create($input);
-
         return back();
     }
 }

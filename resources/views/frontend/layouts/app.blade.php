@@ -73,7 +73,7 @@
         <nav class="navbar  navbar-expand-sm navbar-light">
             <div class="container">
                 <a class="navbar-brand" href="{{ route('front.index') }}">
-                    <img src="{{ asset('frontend/assets/img/logo/DEB-Grean-Logo.png') }}" alt=""
+                    <img src="{{ asset('upload/setting/logo') }}/{{ $settings->logo }}" alt="{{ $settings->logo }}"
                         class="w_100" />
                 </a>
 
