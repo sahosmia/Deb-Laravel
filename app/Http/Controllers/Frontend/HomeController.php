@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Batch;
 use App\Models\Blog;
 use App\Models\Counter;
+use App\Models\Course;
 use App\Models\Gallery;
 use App\Models\Notice;
 use App\Models\Question;
@@ -29,8 +30,8 @@ class HomeController extends Controller
         $questions = Question::where("is_active", 1)->take(4)->get();
         $testimonials = Testimonial::where("is_active", 1)->get();
         $teams = Team::where("is_active", 1)->get();
+        $courses = Course::where("is_active", 1)->get();
 
-// return $blogs;
         return view('frontend.index',[
             "blogs" => $blogs,
             "counters" => $counters,
@@ -40,53 +41,9 @@ class HomeController extends Controller
             "questions" => $questions,
             "testimonials" => $testimonials,
             "teams" => $teams,
+            "courses" => $courses,
         ]);
     }
-
-
-    public function ragistation(){
-
-        $batches = Batch::all();
-        $is_ragistation = StudentInformation::where('user_id', auth()->id())->count();
-
-        return view('frontend.ragistation',[
-            'batches' => $batches,
-            'is_ragistation' => $is_ragistation,
-        ]);
-    }
-
-    public function ragistationSubmit(Request $request){
-
-        $request->validate([
-            'phone' => 'required',
-            'whatsup' => 'required',
-            'facebook_link' => 'required',
-            'linkedin_link' => 'required',
-            'batch_id' => 'required',
-        ]);
-
-        StudentInformation::create([
-            'phone' => $request->phone,
-            'whatsup' => $request->whatsup,
-            'facebook_link' => $request->facebook_link,
-            'linkedin_link' => $request->linkedin_link,
-            'batch_id' => $request->batch_id,
-            'user_id' => auth()->id(),
-            'address' => $request->address,
-            'date_of_birth' => $request->date_of_birth,
-        ]);
-
-        return back()->withSuccess('Registation Successfully');
-    }
-
-
-
-
-
-
-
-
-
 
 
 }

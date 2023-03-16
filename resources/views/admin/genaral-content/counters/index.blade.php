@@ -46,18 +46,17 @@
                                                     <div class="dropdown-menu" x-placement="bottom-start"
                                                         style="position: absolute; transform: translate3d(0px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
 
-                                                        @if (checkPermissionBlade('edit articles'))
+                                                        {{-- @if (checkPermissionBlade('edit articles')) --}}
                                                             <a class="dropdown-item has-icon"
                                                                 href="{{ route('admin.counters.edit', $item->id) }}"><i
                                                                     class="far fa-edit"></i> Edit</a>
-                                                        @endif
+                                                        {{-- @endif --}}
 
                                                         <form action="{{ route('admin.counters.destroy', $item->id) }}"
                                                             method="post">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button type="submit" class="dropdown-item has-icon"><i
-                                                                    class="far fa-file d-block"></i> Delete</button>
+                                                            <button type="submit" class="dropdown-item has-icon"><i class="fa-solid fa-trash"></i> Delete</button>
                                                         </form>
                                                     </div>
                                                 </div>

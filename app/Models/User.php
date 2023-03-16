@@ -54,5 +54,10 @@ class User extends Authenticatable
         return $this->hasOne(Batch::class, 'id', 'batch_id');
     }
 
+    public function coursePurches()
+    {
+        return $this->hasMany(CoursePurchases::class,);
+    }
+
 
 }

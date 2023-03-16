@@ -14,6 +14,10 @@ class GalleryController extends Controller
 
     public function index()
     {
+        if (checkPermission('display-gallery') == true) {
+            return redirect()->route('noAccess');
+        }
+
         return view('admin.genaral-content.galleries.index', [
             'galleries' => Gallery::latest()->paginate(10),
         ]);
@@ -21,16 +25,22 @@ class GalleryController extends Controller
 
 
 
-
-
-
     public function create()
     {
+
+        if (checkPermission('create-gallery') == true) {
+            return redirect()->route('noAccess');
+        }
+
         return view('admin.genaral-content.galleries.create');
     }
 
 
     public function store(GalleryStoreRequest $request){
+
+        if (checkPermission('create-gallery') == true) {
+            return redirect()->route('noAccess');
+        }
 
         $inputs = $request->only("title", "is_active");
         $inputs['added_by'] = auth()->id();
@@ -58,6 +68,10 @@ class GalleryController extends Controller
 
     public function show($id)
     {
+        if (checkPermission('display-gallery') == true) {
+            return redirect()->route('noAccess');
+        }
+
         $data = Gallery::find($id);
 
         return view('admin.genaral-content.galleries.details', [
@@ -68,6 +82,10 @@ class GalleryController extends Controller
 
     public function edit($id)
     {
+        if (checkPermission('edit-gallery') == true) {
+            return redirect()->route('noAccess');
+        }
+
         $data = Gallery::find($id);
 
         return view('admin.genaral-content.galleries.edit', [
@@ -77,6 +95,10 @@ class GalleryController extends Controller
 
 
     public function update(GalleryUpdateRequest $request, $id){
+
+        if (checkPermission('edit-gallery') == true) {
+            return redirect()->route('noAccess');
+        }
 
         $inputs = $request->only("title", "is_active");
         $inputs['added_by'] = auth()->id();
@@ -106,6 +128,10 @@ class GalleryController extends Controller
 
 
     public function destroy($id){
+
+        if (checkPermission('delete-gallery') == true) {
+            return redirect()->route('noAccess');
+        }
 
         $data = Gallery::find($id);
         unlink(public_path('upload/gallery/'.$data->image));

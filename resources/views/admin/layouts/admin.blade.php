@@ -48,22 +48,21 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <div class="dropdown-title">Add New Item</div>
-                            <a href="features-profile.html" class="dropdown-item has-icon">
-                                <i class="far fa-user"></i> Role
+                            <a href="{{ route('admin.roles.create') }}" class="dropdown-item has-icon"><i class="fa-solid fa-bars-progress"></i> Role
                             </a>
-                            <a href="features-activities.html" class="dropdown-item has-icon">
-                                <i class="fas fa-bolt"></i> User
+                            <a href="{{ route('admin.users.create') }}" class="dropdown-item has-icon"><i class="far fa-user"></i> User
                             </a>
-                            <a href="features-settings.html" class="dropdown-item has-icon">
-                                <i class="fas fa-cog"></i> Batch
-                            </a>
-
                         </div>
                     </li>
 
                     <li class="dropdown"><a href="#" data-toggle="dropdown"
                             class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                            <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
+                            @if (auth()->user()->image != null)
+                                <img alt="image" src="{{ asset('upload/user') }}/{{ auth()->user()->image }}" class="rounded-circle mr-1">
+                            @else
+                            <img alt="image" src="{{ asset('default/profile.png') }}" class="rounded-circle mr-1">
+                            @endif
+
                             <div class="d-sm-none d-lg-inline-block">Hi, {{ auth()->user()->name }}</div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
@@ -83,7 +82,6 @@
                         <a href="{{ route('admin.home') }}">DEB</a>
                     </div>
                     <ul class="sidebar-menu">
-
 
                         <!-- Dashboard -->
                         <li class="@yield('dashbord_menu')"><a class="nav-link" href="{{ route('admin.home') }}"><i
@@ -109,22 +107,22 @@
                             </ul>
                         </li>
 
+
                         <!-- Course Management -->
                         <li class="nav-item dropdown @yield('course_management_dropdown')">
                             <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
                                     class="fas fa-columns"></i> <span>Course Management</span></a>
 
                             <ul class="dropdown-menu">
-                                <li class="@yield('batches_menu')"><a class="nav-link"
-                                        href="{{ route('admin.batches.index') }}">Batch</a></li>
+                                <li class="@yield('courses_menu')"><a class="nav-link"
+                                        href="{{ route('admin.courses.index') }}">Course</a></li>
 
-                                <li class="@yield('students_menu')"><a class="nav-link"
-                                        href="{{ route('admin.students.index') }}">Student</a></li>
-
-                                <li class="@yield('ragistations_menu')"><a class="nav-link"
-                                        href="{{ route('admin.ragistations.index') }}">Ragistation</a></li>
+                                <li class="@yield('enrolls_menu')"><a class="nav-link"
+                                        href="{{ route('admin.enrolls.index') }}">Enroll</a></li>
                             </ul>
                         </li>
+
+
 
                         <!-- Genaral Content -->
                         <li class="nav-item dropdown @yield('genaral_content_dropdown')">
@@ -156,23 +154,19 @@
 
                                 <li class="@yield('why_chooses_menu')"><a class="nav-link"
                                         href="{{ route('admin.why-chooses.index') }}">Why Choose</a></li>
-                                        
+
                                 <li class="@yield('settings_menu')"><a class="nav-link"
                                         href="{{ route('admin.settings.index') }}">Settings</a></li>
                             </ul>
                         </li>
 
                         <!-- Web Page -->
-                        {{-- <li><a target="_blank" class="nav-link" href="{{ route('frontend.index') }}"><i
+                        <li><a target="_blank" class="nav-link" href="{{ route('front.index') }}"><i
                                     class="fas fa-fire"></i>
-                                <span>Web Page</span></a></li> --}}
+                                <span>Web Page</span></a></li>
                     </ul>
 
-                    <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
-                        <a href="https://getstisla.com/docs" class="btn btn-primary btn-lg btn-block btn-icon-split">
-                            <i class="fas fa-rocket"></i> Documentation
-                        </a>
-                    </div>
+
                 </aside>
             </div>
 

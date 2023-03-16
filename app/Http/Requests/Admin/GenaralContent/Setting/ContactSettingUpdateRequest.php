@@ -23,6 +23,7 @@ class ContactSettingUpdateRequest extends FormRequest
             "facebook_group" => "bail|required|url|between:3,255",
             "linkedin" => "bail|required|url|between:3,255",
             "youtube" => "bail|nullable|url|between:3,255",
+            "messanger_code" => "bail|required",
         ];
     }
 }

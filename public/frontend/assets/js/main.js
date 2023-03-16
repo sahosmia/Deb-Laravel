@@ -37,20 +37,20 @@ items:2
 });
 
 // Back to top ===================================
-var btn = $('#back_to_top_btn');
+// var btn = $('#back_to_top_btn');
 
-$(window).scroll(function() {
-if ($(window).scrollTop() > 300) {
-btn.addClass('show');
-} else {
-btn.removeClass('show');
-}
-});
+// $(window).scroll(function() {
+// if ($(window).scrollTop() > 300) {
+// btn.addClass('show');
+// } else {
+// btn.removeClass('show');
+// }
+// });
 
-btn.on('click', function(e) {
-e.preventDefault();
-$('html, body').animate({scrollTop:0}, '300');
-});
+// btn.on('click', function(e) {
+// e.preventDefault();
+// $('html, body').animate({scrollTop:0}, '300');
+// });
 
 
 // counter ===================================
@@ -120,6 +120,6 @@ window.addEventListener('load', function(){
                 modalBox.style.display = "block";
             }
         },
-        2000
+        30000
     )
 });

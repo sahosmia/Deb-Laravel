@@ -5,55 +5,56 @@
 
     <div class="form_side col-md-6">
         <div class="logo">
-            <img src="{{ asset('frontend/assets/img/logo/DEB-Grean-Logo.png') }}" alt="">
+            <a href="{{ route('front.index') }}">
+                <img src="{{ asset('upload/setting/logo') }}/{{ $settings->logo }}" alt="{{ $settings->logo }}">
+            </a>
         </div>
 
         <h2>Log In</h2>
 
         @include('auth.layouts.status')
 
-        <form  method="POST" action="{{ route('loginSubmit') }}">
+        <form method="POST" action="{{ route('loginSubmit') }}">
             @csrf
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input name="email" type="text" class="form-control @error('email') is-invalid @enderror" id="exampleInputEmail1" value="{{ old('email') }}">
+                <input name="email" type="text" class="form-control @error('email') is-invalid @enderror"
+                    id="exampleInputEmail1" value="{{ old('email') }}">
             </div>
 
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input name="password" type="password" class="form-control @error('password') is-invalid @enderror" id="exampleInputPassword1" value={{ old('pasword') }}>
+                <div class="passwordDiv">
+                    <input name="password" type="password" class="form-control @error('password') is-invalid @enderror"
+                        id="exampleInputPassword1" value={{ old('pasword') }}>
+                    <span class="fa fa-eye"></span>
+                </div>
             </div>
 
             <div class="row">
                 <div class="form-check mb-3 col-md-6">
-                    <input type="checkbox" class="form-check-input" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                    <label class="form-check-label" for="remember" >Remember Me</label>
+                    <input type="checkbox" class="form-check-input" name="remember" id="remember"
+                        {{ old('remember') ? 'checked' : '' }}>
+                    <label class="form-check-label" for="remember">Remember Me</label>
                 </div>
                 <div class="col-md-6">
                     @if (Route::has('passwordForget'))
-                    <a href="{{ route('passwordForget') }}" class="forgot_link">Forget Password?</a>
+                        <a href="{{ route('passwordForget') }}" class="forgot_link">Forgotten Password?</a>
                     @endif
                 </div>
             </div>
-            <button type="submit" class="btn">Submit</button>
+            <button type="submit" class="btn"> Login</button>
 
         </form>
         <span class="spanOr">Or Login With</span>
         <div class="social_link_item">
-            <a href="#" class="social_link facebook_color"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#" class="social_link google_color"><i class="fa-brands fa-google"></i></a>
+            {{-- <a href="{{ route('login.facebook') }}" class="social_link facebook_color"><i class="fa-brands fa-facebook-f"></i></a> --}}
+            <a href="{{ route('login.google') }}" class="social_link google_color"><i class="fa-brands fa-google"></i> Login with Google</a>
         </div>
 
-        <p class="register_link">Not register yet? <a href="{{ route('register') }}" class="color_primary">Create an account</a>
+        <p class="register_link">Not register yet? <a href="{{ route('register') }}" class="color_primary">Create an
+                account</a>
         </p>
-
-        <ul class="d-flex pt-5 mx-auto">
-            <li class="me-2"><a href="{{ route('front.index') }}">Home</a></li>
-            <li class="mx-2"><a href="#">About</a></li>
-            <li class="mx-2"><a href="#">Home</a></li>
-            <li class="mx-2"><a href="#">Home</a></li>
-        </ul>
-
     </div>
     <div class="content_side col-md-6">
         <h2 class="welcome">Welcome to Deb</h2>

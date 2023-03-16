@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Course;
+use App\Models\CourseLesson;
+use App\Models\CoursePurchases;
 use App\Models\Message;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -18,17 +21,28 @@ class HomeController extends Controller
 
     public function index()
     {
+        if (checkPermission('display-dashboard') == true) {
+            return redirect()->route('noAccess');
+        }
+
         return view('admin.dashboard', [
             'users' => User::latest()->take(2)->get(),
             'messages' => Message::latest()->take(2)->get(),
             'roles' => Role::all(),
+            'total_course' => Course::count(),
+            'total_user' => User::count(),
+            'total_enroll' => CoursePurchases::count(),
         ]);
     }
 
 
 
 
-
+public function test(){
+    return view('test', [
+        'data' => CourseLesson::find(24),
+    ]);
+}
 
 
 

@@ -4,21 +4,18 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Frontend\Contact\MessageStoreRequest;
-use App\Models\Blog;
 use App\Models\Message;
-use Illuminate\Http\Request;
 
 
 class ContactController extends Controller
 {
 
-    public function index()
-    {
+    public function index(){
         return view('frontend.contact.index');
     }
 
-    public function messageStore(MessageStoreRequest $request)
-    {
+    public function messageStore(MessageStoreRequest $request){
+
         $inputs = $request->only("name", "email", "message");
         Message::create($inputs);
 

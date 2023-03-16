@@ -21,6 +21,8 @@
                             <h4>Update User</h4>
                         </div>
                         <div class="card-body">
+
+                            @include("admin.layouts.com.status")
                             <form action="{{ route('admin.users.update', $data->id) }}" method="POST">
                                 @csrf
                                 @method("PUT")
@@ -43,7 +45,7 @@
                                     <select class="form-control" name="role_id">
                                         <option value="">Select Here</option>
                                         @forelse ($roles as $item)
-                                            <option @selected($item->id == $data->role_id) value="{{ $data->role_id }}">
+                                            <option @selected($item->id == $data->role_id) value="{{ $item->id }}">
                                                 {{ $item->name }}
                                             </option>
 

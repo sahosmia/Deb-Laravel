@@ -1,5 +1,7 @@
 @extends('frontend.layouts.app')
 @section('title', $data->title)
+@section('blog-menu', 'active')
+
 @section('content')
 
 
@@ -13,7 +15,7 @@
                         <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
                             aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="">Home</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('front.index') }}">Home</a></li>
                                 <li class="breadcrumb-item"><a href="{{ route('front.blog.index') }}">Blog</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">{{ $data->title }}</li>
                             </ol>
@@ -29,7 +31,7 @@
         <div class="container">
 
             <div class="row mb-5" data-aos="fade-up" data-aos-duration="1000">
-                <div class="col-md-12 col-lg-9">
+                <div class="col-md-12 col-lg-8">
                     <div class="blog_details">
                         <img class="thumbnail" src="{{ asset('upload/blog') }}/{{ $data->image }}"
                             alt="{{ $data->image }}">
@@ -51,6 +53,7 @@
                         <div class="title">
                             <h4>Leave a comments</h4>
                         </div>
+                        @auth
                         <form action="{{ route('front.blog.comment.store') }}" method="POST" class="contact-comments">
                             @csrf
                             <div class="row">
@@ -69,6 +72,9 @@
                                 </div>
                             </div>
                         </form>
+                        @else
+                        <span class="text-danger">Please login first, If you want to comment.</span>
+                        @endauth
                     </div>
 
                     <div class="blog_comment pt-5">
@@ -123,13 +129,13 @@
 
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="blog_sidebar">
+                <div class="col-md-6 col-lg-4">
+                    {{-- <div class="blog_sidebar">
                         <h6 class="subtitle">Populer Blog</h6>
 
                         <div class="small_item">
                             <div class="blog_img">
-                                {{-- <img src="./assets/img/blog/5.webp" alt=""> --}}
+                                <img src="./assets/img/blog/5.webp" alt="">
                             </div>
                             <div class="item_content">
                                 <h6><a href="#">Basic web design for beginer course</a></h6>
@@ -137,7 +143,7 @@
                             </div>
                         </div>
 
-                    </div>
+                    </div> --}}
 
 
                     <div class="blog_sidebar">

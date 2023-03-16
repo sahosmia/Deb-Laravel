@@ -9,8 +9,6 @@
         <div class="section-header">
             <h1>Module Create</h1>
             <a href="{{ route('admin.modules.index') }}" class="btn btn-primary  ml-auto">Back</a>
-
-
         </div>
 
         <div class="section-body">
@@ -21,6 +19,7 @@
                             <h4>Add New Module</h4>
                         </div>
                         <div class="card-body">
+                            @include("admin.layouts.com.status")
                             <form action="{{ route('admin.modules.store') }}" method="POST">
                                 @csrf
                                 <!-- Name  -->

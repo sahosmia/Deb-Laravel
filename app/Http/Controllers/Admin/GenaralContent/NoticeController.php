@@ -13,6 +13,10 @@ class NoticeController extends Controller
 
     public function index()
     {
+
+        if (checkPermission('display-notice') == true) {
+            return redirect()->route('noAccess');
+        }
         return view('admin.genaral-content.notices.index', [
             'notices' => Notice::latest()->paginate(10),
         ]);
@@ -21,11 +25,18 @@ class NoticeController extends Controller
 
     public function create()
     {
+        if (checkPermission('create-notice') == true) {
+            return redirect()->route('noAccess');
+        }
         return view('admin.genaral-content.notices.create');
     }
 
 
     public function store(NoticeStoreRequest $request){
+
+        if (checkPermission('create-notice') == true) {
+            return redirect()->route('noAccess');
+        }
 
         $inputs = $request->only("title", "description", "is_active");
         $inputs['added_by'] = auth()->id();
@@ -54,6 +65,10 @@ class NoticeController extends Controller
 
     public function edit($id)
     {
+        if (checkPermission('edit-notice') == true) {
+            return redirect()->route('noAccess');
+        }
+
         $data = Notice::find($id);
 
         return view('admin.genaral-content.notices.edit', [
@@ -63,6 +78,10 @@ class NoticeController extends Controller
 
 
     public function update(NoticeUpdateRequest $request, $id){
+
+        if (checkPermission('edit-notice') == true) {
+            return redirect()->route('noAccess');
+        }
 
         $inputs = $request->only("title", "description", "is_active");
         $inputs['added_by'] = auth()->id();
@@ -81,6 +100,10 @@ class NoticeController extends Controller
 
 
     public function destroy($id){
+
+        if (checkPermission('delete-notice') == true) {
+            return redirect()->route('noAccess');
+        }
 
         $data = Notice::find($id);
         $data->delete();

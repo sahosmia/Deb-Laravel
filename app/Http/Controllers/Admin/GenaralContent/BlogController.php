@@ -14,6 +14,9 @@ class BlogController extends Controller
 
     public function index()
     {
+        if (checkPermission('display-blog') == true) {
+            return redirect()->route('noAccess');
+        }
         return view('admin.genaral-content.blogs.index', [
             'blogs' => Blog::latest()->paginate(10),
         ]);
@@ -22,13 +25,18 @@ class BlogController extends Controller
 
 
     public function create()
-    {
+    {if (checkPermission('create-blog') == true) {
+            return redirect()->route('noAccess');
+        }
         return view('admin.genaral-content.blogs.create');
     }
 
 
     public function store(BlogStoreRequest $request){
 
+        if (checkPermission('create-blog') == true) {
+            return redirect()->route('noAccess');
+        }
         $inputs = $request->only("title", "short_description", "description", "is_active");
         $inputs['added_by'] = auth()->id();
         $inputs['slug'] = strtolower(str_replace(" ","-",$request->title)).'-'.time();
@@ -56,6 +64,9 @@ class BlogController extends Controller
 
     public function show($slug)
     {
+        if (checkPermission('display-blog') == true) {
+            return redirect()->route('noAccess');
+        }
         $data = Blog::where('slug', $slug)->first();
 
         return view('admin.genaral-content.blogs.details', [
@@ -66,6 +77,9 @@ class BlogController extends Controller
 
     public function edit($id)
     {
+        if (checkPermission('edit-blog') == true) {
+            return redirect()->route('noAccess');
+        }
         $data = Blog::find($id);
 
         return view('admin.genaral-content.blogs.edit', [
@@ -76,6 +90,9 @@ class BlogController extends Controller
 
     public function update(BlogUpdateRequest $request, $id){
 
+        if (checkPermission('edit-blog') == true) {
+            return redirect()->route('noAccess');
+        }
         $inputs = $request->only("title", "short_description", "description", "is_active");
         $inputs['added_by'] = auth()->id();
         $inputs['slug'] = strtolower(str_replace(" ","-",$request->title)).'-'.time();
@@ -105,6 +122,10 @@ class BlogController extends Controller
 
 
     public function destroy($id){
+
+        if (checkPermission('delete-blog') == true) {
+            return redirect()->route('noAccess');
+        }
 
         $data = Blog::find($id);
         unlink(public_path('upload/blog/'.$data->image));

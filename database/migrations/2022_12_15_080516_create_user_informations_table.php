@@ -17,14 +17,11 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->unsignedBigInteger('batch_id');
-            $table->foreign('batch_id')->references('id')->on('batches')->onDelete('cascade');
             $table->string('phone')->nullable();
             $table->string('whatsapp')->nullable();
             $table->string('facebook')->nullable();
             $table->string('linkedin')->nullable();
             $table->string('drive')->nullable();
-            $table->integer('payment_amount')->nullable();
             $table->string('address')->nullable();
             $table->string('gender')->nullable();
             $table->string('blood')->nullable();
@@ -43,4 +40,5 @@ return new class extends Migration
     {
         Schema::dropIfExists('user_informations');
     }
+
 };

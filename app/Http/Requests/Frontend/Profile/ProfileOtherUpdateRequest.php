@@ -18,24 +18,12 @@ class ProfileOtherUpdateRequest extends FormRequest
 
     public function rules()
     {
-        if(auth()->user()->role->name == "Student" ){
 
-            return [
-                "linkedin" => "bail|required|url",
-                "facebook" => "bail|required|url",
-                "drive" => "bail|required|url",
-                "whatsapp" => "bail|required",
-                "phone" => "bail|required",
-                "date_of_birth" => "bail|required",
-            ];
-        }
-        else{
 
             return [
                 "linkedin" => "nullable|url",
                 "facebook" => "nullable|url",
                 "drive" => "nullable|url",
             ];
-        }
     }
 }

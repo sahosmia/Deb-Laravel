@@ -32,6 +32,7 @@ html {
 body {
   font-family: var(--font-family-inter);
   position: relative;
+  background: #f6f6f6;
 }
 
 ul {
@@ -102,37 +103,57 @@ button.button {
   transition: all linear 0.3s;
 }
 
+.button-red {
+    background-color: var(--color-1);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #fff;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    height: 55px;
+    line-height: 53px;
+    padding: 0 40px;
+    text-align: center;
+    transition: all .3s ease-out 0s;
+}
+
+.button-red:hover {
+    background-color: var(--color-2);
+    color: #fff;
+}
+
 .button:hover {
   background: var(--color-2);
   color: var(--color-white);
 }
 
 .section_heading::before {
-	position: absolute;
-	content: "";
-	bottom: -12px;
-	left: 48%;
-	width: 48px;
-	height: 2px;
-	background: #afbfbb;
-	display: block;
-	margin: 0 auto;
+    position: absolute;
+    content: "";
+    bottom: -12px;
+    left: 48%;
+    width: 48px;
+    height: 2px;
+    background: #ed344d;
+    display: block;
+    margin: 0 auto;
 }
 .section_heading {
-	text-align: center;
-	font-weight: 600;
-	margin-bottom: 25px;
-	font-size: 32px;
-	color: #404145;
-	text-transform: uppercase;
-  position: relative;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 30px;
+    font-size: 36px;
+    color: #181818;
+    text-transform: capitalize;
+    position: relative;
 }
 .section_content {
   padding-bottom: 60px;
 }
 .section_content p {
-  text-align: center;
-  color: #999;
+    text-align: center;
+    color: #0c0c0c;
 }
 
 
@@ -146,6 +167,8 @@ button.button {
 .testimonial,
 .profile_page,
 .blog,
+.course-details,
+.course,
 .contact,
 .registaion_details_section{
   padding: 60px 0;
@@ -159,4 +182,8 @@ button.button {
 
 .mt_60 {
   margin-top: 60px;
+}
+
+.fs-24{
+    font-size: 24px;
 }

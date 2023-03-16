@@ -21,6 +21,7 @@
                             <h4>Add New User</h4>
                         </div>
                         <div class="card-body">
+                            @include("admin.layouts.com.status")
                             <form action="{{ route('admin.users.store') }}" method="POST">
                                 @csrf
                                 <!-- Name  -->
@@ -58,9 +59,9 @@
                                     <input type="password" name="password" value="{{ old('password') }}"
                                         class="form-control">
                                 </div>
-                                @can('add-user')
+                                {{-- @can('add-user') --}}
                                 <button class="btn btn-primary mr-1" type="submit">Submit</button>
-                                @endcan
+                                {{-- @endcan --}}
                         </div>
                         <div class="card-footer text-right">
                         </div>

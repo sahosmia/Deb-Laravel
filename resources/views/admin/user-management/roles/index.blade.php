@@ -26,31 +26,33 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Name</th>
-                                        <th>Created At</th>
-                                        <th>Status</th>
+                                        <th>Time</th>
                                         <th>Action</th>
                                     </tr>
                                     @forelse ($roles as $k => $item)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $item->name }}</td>
-                                            <td>{{ $item->created_at }}</td>
-                                            <td>
-                                                <div class="badge badge-success">Active</div>
-                                            </td>
+                                            <td>{{ getCreatedAt($item->created_at) }}</td>
+
                                             <td>
                                                 <div class="dropdown d-inline">
                                                     <button class="btn btn-dark dropdown-toggle" type="button"
                                                         id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true"
                                                         aria-expanded="false">
-                                                        Options
+
                                                     </button>
                                                     <div class="dropdown-menu" x-placement="bottom-start"
                                                         style="position: absolute; transform: translate3d(0px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
-                                                        <a class="dropdown-item has-icon" href="#"><i
-                                                                class="far fa-heart"></i> Edit</a>
-                                                        <a class="dropdown-item has-icon" href="#"><i
-                                                                class="far fa-file"></i> Delete</a>
+                                                        <a class="dropdown-item has-icon"
+                                                            href="{{ route('admin.roles.edit', $item->id) }}"><i
+                                                                class="far fa-edit"></i> Edit</a>
+                                                        <form action="{{ route('admin.roles.destroy', $item->id) }}" method="post">
+                                                            @csrf
+                                                            @method("DELETE")
+                                                            <button type="submit" class="dropdown-item has-icon"><i class="fa-solid fa-trash"></i> Delete</button>
+                                                        </form>
+
 
                                                     </div>
                                                 </div>

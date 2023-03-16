@@ -19,6 +19,9 @@ class TestimonialController extends Controller
 
     public function index()
     {
+        if (checkPermission('display-testimonial') == true) {
+            return redirect()->route('noAccess');
+        }
         return view('admin.genaral-content.testimonials.index', [
             'testimonials' => Testimonial::latest()->paginate(10),
         ]);
@@ -31,12 +34,18 @@ class TestimonialController extends Controller
 
     public function create()
     {
+        if (checkPermission('create-testimonial') == true) {
+            return redirect()->route('noAccess');
+        }
         return view('admin.genaral-content.testimonials.create');
     }
 
 
     public function store(TestimonialStoreRequest $request){
 
+        if (checkPermission('create-testimonial') == true) {
+            return redirect()->route('noAccess');
+        }
         $inputs = $request->only("name", "designation", "company", "feedback", "is_active");
         $inputs['added_by'] = auth()->id();
 
@@ -65,6 +74,9 @@ class TestimonialController extends Controller
 
     public function show($id)
     {
+        if (checkPermission('display-testimonial') == true) {
+            return redirect()->route('noAccess');
+        }
         $data = Testimonial::find($id);
 
         return view('admin.genaral-content.testimonials.details', [
@@ -75,6 +87,9 @@ class TestimonialController extends Controller
 
     public function edit($id)
     {
+        if (checkPermission('edit-testimonial') == true) {
+            return redirect()->route('noAccess');
+        }
         $data = Testimonial::find($id);
 
         return view('admin.genaral-content.testimonials.edit', [
@@ -85,6 +100,9 @@ class TestimonialController extends Controller
 
     public function update(TestimonialUpdateRequest $request, $id){
 
+        if (checkPermission('edit-testimonial') == true) {
+            return redirect()->route('noAccess');
+        }
         $inputs = $request->only("name", "designation", "company", "feedback", "is_active");
         $inputs['added_by'] = auth()->id();
 
@@ -114,6 +132,9 @@ class TestimonialController extends Controller
 
     public function destroy($id){
 
+         if (checkPermission('delete-testimonial') == true) {
+            return redirect()->route('noAccess');
+        }
         $data = Testimonial::find($id);
         unlink(public_path('upload/testimonial/'.$data->image));
         $data->delete();

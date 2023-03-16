@@ -45,6 +45,31 @@ class RegisterController extends Controller
         return redirect()
             ->route('registerOtp')
             ->with('success', 'Check your email for otp. It duration is 5 minit');
+
+        // User Data Store
+                // $user = User::create([
+                //     'name' => $request->name,
+                //     'email' => $request->email,
+                //     'password' => Hash::make($request->password),
+                //     'role_id' => 1,
+                // ]);
+
+
+                // UserInformation::create([
+                //     'user_id' => $user->id,
+                // ]);
+
+                // $user->assignRole(1);
+
+                // $credentials = [
+                //     'email' => $request->email,
+                //     'password' => $request->password,
+                // ];
+
+                // if (Auth::attempt($credentials)) {
+                //     return redirect()->route('front.index');
+                // }
+                // return back()->with('error', 'Something is error.');
     }
 
     public function registerOtp()
@@ -80,7 +105,7 @@ class RegisterController extends Controller
                 ];
 
                 if (Auth::attempt($credentials)) {
-                    return redirect()->route('frontend.index');
+                    return redirect()->route('front.index');
                 }
                 return back()->with('error', 'Something is error.');
             }

@@ -7,12 +7,14 @@
 
     <div class="form_side col-md-6">
         <div class="logo">
-            <img src="{{ asset('frontend/assets/img/logo/DEB-Grean-Logo.png') }}" alt="">
+            <a href="{{ route('front.index') }}">
+                <img src="{{ asset('upload/setting/logo') }}/{{ $settings->logo }}" alt="{{ $settings->logo }}">
+            </a>
         </div>
 
         <h2>Register</h2>
         @include('auth.layouts.status')
-        
+
         <form  method="POST" action="{{ route('registerSubmit') }}">
             @csrf
             <div class="mb-3">
@@ -27,12 +29,22 @@
 
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input name="password" type="password" class="form-control @error('password') is-invalid @enderror" id="exampleInputPassword1">
+                <div class="passwordDiv">
+                    <input name="password" type="password" class="form-control @error('password') is-invalid @enderror"
+                        id="exampleInputPassword1" value="{{ old('pasword') }}">
+                    <span class="fa fa-eye"></span>
+                </div>
             </div>
 
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Conform Password</label>
-                <input name="password_confirmation" type="password" class="form-control" id="exampleInputPassword1">
+
+
+                <div class="passwordDiv">
+                    <input name="password_confirmation" type="password" class="form-control @error('password') is-invalid @enderror"
+                        id="exampleInputPassword1" value="{{ old('pasword') }}">
+                    <span class="fa fa-eye"></span>
+                </div>
             </div>
             <div class="row">
 
@@ -51,8 +63,7 @@
         </form>
         <span class="spanOr">Or Login With</span>
         <div class="social_link_item">
-            <a href="#" class="social_link facebook_color"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#" class="social_link google_color"><i class="fa-brands fa-google"></i></a>
+           <a href="{{ route('login.google') }}" class="social_link google_color"><i class="fa-brands fa-google"></i> Login with Google</a>
         </div>
 
         <p class="register_link">You have an account? <a href="{{ route('login') }}" class="color_primary">Login your account</a>

@@ -9,13 +9,11 @@
         <div class="section-header">
             <h1>Role Create</h1>
             <a href="{{ route('admin.roles.index') }}" class="btn btn-primary  ml-auto">Back</a>
-
-
         </div>
 
         <div class="section-body">
             <div class="row">
-                <div class="col-12 col-md-6 col-lg-6 m-auto">
+                <div class="col-12">
                     <div class="card">
                         <div class="card-header">
                             <h4>Add New Role</h4>
@@ -30,37 +28,37 @@
                                     <input type="text" name="name" value="{{ old('name') }}" class="form-control">
                                 </div>
 
-                                @foreach ($modules as $module)
-                                    <div class="row">
-
-
+                                 @foreach ($modules as $module)
+                                    <div class="row mx-2">
                                         <div class="form-group">
-                                            <label class="d-block">{{ $module->title }}</label>
+                                            <h6 class="d-block">{{ $module->title }}</h6>
 
-                                            <ul>
-                                            @foreach ($module->permissions as $permission)
-                                                    <li>
-                                                        <div class="form-check">
+                                            <ul class="d-flex list-unstyled">
+                                                @forelse ($module->permissions as $permission)
+                                                    <li class="mr-3">
+
+                                                        <div class="form-check d-flex">
+
                                                             <input name="permissions[]" value="{{ $permission->id }}"
-                                                                class="form-check-input" type="checkbox" id="defaultCheck1">
-                                                            <label class="form-check-label" for="defaultCheck1">
+                                                                class="form-check-input" type="checkbox" >
+
+                                                            <label class="form-check-label">
                                                                 {{ $permission->professional_name }}
                                                             </label>
+
                                                         </div>
                                                     </li>
-                                                    @endforeach
-                                                </ul>
+                                                @empty
+                                                    <span class="text-danger">No Permisson Here</span>
+                                                @endforelse
+                                            </ul>
 
                                         </div>
                                     </div>
                                 @endforeach
 
-
                                 <button class="btn btn-primary mr-1" type="submit">Submit</button>
                         </div>
-                        <div class="card-footer text-right">
-                        </div>
-
 
 
                         </form>

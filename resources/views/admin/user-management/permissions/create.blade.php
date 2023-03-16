@@ -18,9 +18,11 @@
                 <div class="col-12 col-md-6 col-lg-6 m-auto">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Add New User</h4>
+                            <h4>Add New Permission</h4>
                         </div>
                         <div class="card-body">
+
+                            @include("admin.layouts.com.status")
                             <form action="{{ route('admin.permissions.store') }}" method="POST">
                                 @csrf
 

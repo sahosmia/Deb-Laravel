@@ -15,6 +15,10 @@ class CounterController extends Controller
     public function index()
     {
 
+        if (checkPermission('display-counter') == true) {
+            return redirect()->route('noAccess');
+        }
+
         return view('admin.genaral-content.counters.index', [
             'counters' => Counter::latest()->paginate(10),
         ]);
@@ -23,18 +27,23 @@ class CounterController extends Controller
 
     public function create()
     {
+        if (checkPermission('create-counter') == true) {
+            return redirect()->route('noAccess');
+        }
         return view('admin.genaral-content.counters.create');
     }
 
 
     public function store(CounterStoreRequest $request){
 
+        if (checkPermission('create-counter') == true) {
+            return redirect()->route('noAccess');
+        }
         $inputs = $request->only("title", "number", "is_active");
         $inputs['added_by'] = auth()->id();
 
 
         try{
-            // return $inputs;
             Counter::create($inputs);
             Session::flash('success',"Record create successfully");
             return redirect()->route('admin.counters.index');
@@ -45,18 +54,11 @@ class CounterController extends Controller
     }
 
 
-    // public function show($id)
-    // {
-    //     $data = Counter::find($id);
-
-    //     return view('admin.genaral-content.counters.details', [
-    //         'data' => $data,
-    //     ]);
-    // }
-
-
     public function edit($id)
     {
+        if (checkPermission('edit-counter') == true) {
+            return redirect()->route('noAccess');
+        }
         $data = Counter::find($id);
 
         return view('admin.genaral-content.counters.edit', [
@@ -67,6 +69,9 @@ class CounterController extends Controller
 
     public function update(CounterUpdateRequest $request, $id){
 
+        if (checkPermission('edit-counter') == true) {
+            return redirect()->route('noAccess');
+        }
         $inputs = $request->only("title", "number", "is_active");
         $inputs['added_by'] = auth()->id();
 
@@ -84,6 +89,9 @@ class CounterController extends Controller
 
     public function destroy($id){
 
+        if (checkPermission('delete-counter') == true) {
+            return redirect()->route('noAccess');
+        }
         $data = Counter::find($id);
 
         $data->delete();

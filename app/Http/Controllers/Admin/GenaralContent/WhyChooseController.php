@@ -14,6 +14,9 @@ class WhyChooseController extends Controller
 
     public function index()
     {
+        if (checkPermission('display-why-choose') == true) {
+            return redirect()->route('noAccess');
+        }
         return view('admin.genaral-content.why-chooses.index', [
             'why_chooses' => WhyChoose::latest()->paginate(10),
         ]);
@@ -22,12 +25,18 @@ class WhyChooseController extends Controller
 
     public function create()
     {
+         if (checkPermission('display-why-choose') == true) {
+            return redirect()->route('noAccess');
+        }
         return view('admin.genaral-content.why-chooses.create');
     }
 
 
     public function store(WhyChooseStoreRequest $request){
 
+         if (checkPermission('create-why-choose') == true) {
+            return redirect()->route('noAccess');
+        }
         $inputs = $request->only("title", "description", "icon", "is_active");
         $inputs['added_by'] = auth()->id();
 
@@ -44,6 +53,9 @@ class WhyChooseController extends Controller
 
     public function show($id)
     {
+         if (checkPermission('create-why-choose') == true) {
+            return redirect()->route('noAccess');
+        }
         $data = WhyChoose::find($id);
 
         return view('admin.genaral-content.why-chooses.details', [
@@ -54,6 +66,9 @@ class WhyChooseController extends Controller
 
     public function edit($id)
     {
+         if (checkPermission('edit-why-choose') == true) {
+            return redirect()->route('noAccess');
+        }
         $data = WhyChoose::find($id);
 
         return view('admin.genaral-content.why-chooses.edit', [
@@ -64,6 +79,9 @@ class WhyChooseController extends Controller
 
     public function update(WhyChooseUpdateRequest $request, $id){
 
+         if (checkPermission('edit-why-choose') == true) {
+            return redirect()->route('noAccess');
+        }
         $inputs = $request->only("title", "description", "icon", "is_active");
         $inputs['added_by'] = auth()->id();
 
@@ -80,6 +98,9 @@ class WhyChooseController extends Controller
 
     public function destroy($id){
 
+         if (checkPermission('delete-why-choose') == true) {
+            return redirect()->route('noAccess');
+        }
         $data = WhyChoose::find($id);
         $data->delete();
 

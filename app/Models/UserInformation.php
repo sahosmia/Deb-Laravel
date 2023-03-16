@@ -23,9 +23,6 @@ class UserInformation extends Model
         'date_of_birth',
         'address',
         'drive',
-        'payment_amount',
-        'batch_id',
-        'status'
     ];
 
     protected $hidden = [
@@ -33,9 +30,6 @@ class UserInformation extends Model
     ];
 
 
-    public function batch(){
-        return $this->hasOne(Batch::class, 'id', 'batch_id');
-    }
 
     public function user(){
         return $this->belongsTo(User::class,);

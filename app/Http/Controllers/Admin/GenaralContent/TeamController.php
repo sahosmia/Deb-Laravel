@@ -14,6 +14,9 @@ class TeamController extends Controller
 
     public function index()
     {
+        if (checkPermission('display-team') == true) {
+            return redirect()->route('noAccess');
+        }
         return view('admin.genaral-content.teams.index', [
             'teams' => Team::latest()->paginate(10),
         ]);
@@ -24,11 +27,17 @@ class TeamController extends Controller
 
     public function create()
     {
+        if (checkPermission('create-team') == true) {
+            return redirect()->route('noAccess');
+        }
         return view('admin.genaral-content.teams.create');
     }
 
 
     public function store(TeamStoreRequest $request){
+        if (checkPermission('create-team') == true) {
+            return redirect()->route('noAccess');
+        }
 
         $inputs = $request->only("name", "designation", "facebook", "linkedin", "twitter", "instragram", "youtube", "is_active");
         $inputs['added_by'] = auth()->id();
@@ -55,6 +64,9 @@ class TeamController extends Controller
 
     public function show($id)
     {
+        if (checkPermission('display-team') == true) {
+            return redirect()->route('noAccess');
+        }
         $data = Team::find($id);
 
         return view('admin.genaral-content.teams.details', [
@@ -65,6 +77,9 @@ class TeamController extends Controller
 
     public function edit($id)
     {
+        if (checkPermission('edit-team') == true) {
+            return redirect()->route('noAccess');
+        }
         $data = Team::find($id);
 
         return view('admin.genaral-content.teams.edit', [
@@ -75,6 +90,9 @@ class TeamController extends Controller
 
     public function update(TeamUpdateRequest $request, $id){
 
+        if (checkPermission('edit-team') == true) {
+            return redirect()->route('noAccess');
+        }
         $inputs = $request->only("name", "designation", "facebook", "linkedin", "twitter", "instragram", "youtube", "is_active");
         $inputs['added_by'] = auth()->id();
 
@@ -103,6 +121,9 @@ class TeamController extends Controller
 
     public function destroy($id){
 
+        if (checkPermission('delete-team') == true) {
+            return redirect()->route('noAccess');
+        }
         $data = Team::find($id);
         unlink(public_path('upload/team/'.$data->image));
         $data->delete();

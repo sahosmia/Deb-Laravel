@@ -58,8 +58,7 @@
                                                             method="post">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button type="submit" class="dropdown-item has-icon"><i
-                                                                    class="far fa-file d-block"></i> Delete</button>
+                                                            <button type="submit" class="dropdown-item has-icon"><i class="fa-solid fa-trash"></i> Delete</button>
                                                         </form>
 
 

@@ -14,6 +14,9 @@ class QuestionController extends Controller
 
     public function index()
     {
+        if (checkPermission('display-question') == true) {
+            return redirect()->route('noAccess');
+        }
         return view('admin.genaral-content.questions.index', [
             'questions' => Question::latest()->paginate(10),
         ]);
@@ -22,12 +25,18 @@ class QuestionController extends Controller
 
     public function create()
     {
+        if (checkPermission('create-question') == true) {
+            return redirect()->route('noAccess');
+        }
         return view('admin.genaral-content.questions.create');
     }
 
 
     public function store(QuestionStoreRequest $request){
 
+        if (checkPermission('create-question') == true) {
+            return redirect()->route('noAccess');
+        }
         $inputs = $request->only("title", "answer", "is_active");
         $inputs['added_by'] = auth()->id();
 
@@ -46,6 +55,9 @@ class QuestionController extends Controller
 
     public function show($id)
     {
+        if (checkPermission('display-question') == true) {
+            return redirect()->route('noAccess');
+        }
         $data = Question::find($id);
 
         return view('admin.genaral-content.questions.details', [
@@ -56,6 +68,9 @@ class QuestionController extends Controller
 
     public function edit($id)
     {
+         if (checkPermission('edit-question') == true) {
+            return redirect()->route('noAccess');
+        }
         $data = Question::find($id);
 
         return view('admin.genaral-content.questions.edit', [
@@ -65,6 +80,10 @@ class QuestionController extends Controller
 
 
     public function update(QuestionUpdateRequest $request, $id){
+
+        if (checkPermission('edit-question') == true) {
+            return redirect()->route('noAccess');
+        }
 
         $inputs = $request->only("title", "answer", "is_active");
         $inputs['added_by'] = auth()->id();
@@ -81,6 +100,10 @@ class QuestionController extends Controller
 
 
     public function destroy($id){
+
+        if (checkPermission('delete-question') == true) {
+            return redirect()->route('noAccess');
+        }
 
         $data = Question::find($id);
         $data->delete();

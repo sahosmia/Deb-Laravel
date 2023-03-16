@@ -19,6 +19,7 @@
                             <h4>Edit Module</h4>
                         </div>
                         <div class="card-body">
+                            @include("admin.layouts.com.status")
                             <form action="{{ route('admin.modules.update', $data->id) }}" method="POST">
                                 @csrf
                                 @method('PUT')

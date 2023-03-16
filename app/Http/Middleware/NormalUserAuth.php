@@ -22,6 +22,6 @@ class NormalUserAuth
                 return $next($request);
             }
         }
-        return redirect()->route('frontend.index');
+        return redirect()->route('front.index');
     }
 }

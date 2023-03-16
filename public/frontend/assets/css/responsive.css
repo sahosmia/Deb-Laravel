@@ -3,13 +3,23 @@
 @media (min-width: 992px) and (max-width: 1199px) {}
 
 @media (min-width: 768px) and (max-width: 991px) {
-    
+
     .page_banner {
         padding: 50px 0;
     }
-    .page_banner_content h2 {  
+    .page_banner_content h2 {
         font-size: 28px;
     }
+
+    .full-counter .col-lg-3 {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        border-right: none;
+    }
+    .full-counter .col-lg-3:last-child {
+        border-bottom: none;
+    }
+
+
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
@@ -17,7 +27,7 @@
     .page_banner {
         padding: 50px 0;
     }
-    .page_banner_content h2 {  
+    .page_banner_content h2 {
         font-size: 28px;
     }
 
@@ -35,12 +45,12 @@
             padding: 1rem 0;
             font-size: 1.8rem;
         }
-    
+
         .main_footer ul li {
             line-height: 1.5rem;
             padding-bottom: 1rem;
         }
-        .main_footer ul li a, 
+        .main_footer ul li a,
         .footer_bottom,
         .footer_bottom ul li a  {
             font-size: 1.2rem;
@@ -49,8 +59,18 @@
         .footer_bottom {
             padding: 2rem;
         }
-        
-    
+
+        .full-counter .col-lg-3 {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        border-right: none;
+    }
+    .full-counter .col-lg-3:last-child {
+        border-bottom: none;
+    }
+
+
+
+
 }
 
 @media (min-width: 320px) and (max-width: 575px) {
@@ -60,7 +80,7 @@
     .page_banner {
         padding: 50px 0;
     }
-    .page_banner_content h2 {  
+    .page_banner_content h2 {
         font-size: 28px;
     }
     .section_heading {
@@ -150,7 +170,7 @@
     .testimonial .owl-prev i, .testimonial .owl-next i {
         display: none;
     }
-    
+
     /* counter  */
     .counter_item h3 {
         font: 800 40px var(--font-family-1);
@@ -162,7 +182,13 @@
     }
 
 
-
+.full-counter .col-lg-3 {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        border-right: none;
+    }
+    .full-counter .col-lg-3:last-child {
+        border-bottom: none;
+    }
 
 
 
@@ -181,7 +207,7 @@
         font-size: 14px;
         margin-bottom: 40px;
     }
-    
+
     /* Footer Css Start  */
 
     .footer .main_footer {

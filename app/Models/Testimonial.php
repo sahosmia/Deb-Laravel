@@ -23,5 +23,4 @@ class Testimonial extends Model
         return $this->hasOne(User::class, 'id', 'added_by');
     }
 
-
 }

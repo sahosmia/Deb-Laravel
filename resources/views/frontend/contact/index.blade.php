@@ -1,5 +1,7 @@
 @extends('frontend.layouts.app')
 @section('title', 'Contact')
+@section('contact-menu', 'active')
+
 @section('content')
 
 

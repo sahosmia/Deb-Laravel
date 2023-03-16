@@ -77,11 +77,14 @@ li {
 	flex-direction: column;
 	justify-content: center;
 	padding: 0 130px;
-	height: 100vh;
+	/* height: 100vh; */
+}
+.form_side .logo{
+    text-align: center;
 }
 .form_side .logo img {
-	width: 150px;
-	display: block;
+	width: 180px;
+	display: inline-block;
 	margin: 0 auto;
 	padding-bottom: 40px;
 }
@@ -94,13 +97,21 @@ li {
   position: absolute;
 }
 
-.form_side .color_primary{
-  color: #1a6c52;
+.form_side .color_primary {
+    color: #ed344d;
 }
 
 .form_side p, .form_side label{
 	font-size: 14px;
 	font-weight: 600;
+}
+.passwordDiv{
+    position: relative;
+}
+.passwordDiv span {
+    position: absolute;
+    top: 30%;
+    right: 10px; cursor: pointer;
 }
 
 .form_side .social_link_item{
@@ -108,15 +119,17 @@ li {
 }
 
 .form_side .social_link {
-	background: transparent;
-	color: #6a6666;
-	border: 1px solid #ced4da;
-	font-size: 14px;
-	font-weight: 500;
-	display: inline-block;
-	width: 50px;
-	line-height: 30px;
-	border-radius: 5px;
+    background: transparent;
+    color: #6a6666;
+    border: 1px solid #ced4da;
+    font-size: 14px;
+    font-weight: 500;
+    display: block;
+    width: 100%;
+    line-height: 40px;
+    border-radius: 5px;
+    margin-bottom: 13px;
+    transition: .6s;
 }
 
 .form_side .social_link:hover{
@@ -133,7 +146,7 @@ li {
 
 .google_color{
   border:1px solid #DB4437 !important;
-  
+
 }
 
 .google_color:hover{
@@ -141,21 +154,27 @@ li {
   color: #fff;
 }
 
-.forgot_link{
-	color: #1a6c52;
-	font-size: 14px;
-	font-weight: 600;
-	text-align: right;
-	display: block;
+.forgot_link {
+    color: #ed344d;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: right;
+    display: block;
 }
+
+.forgot_link:hover {
+    color: #ed344d;
+}
+
+
 .spanOr {
 	position: relative;
 	font-weight: 500;
 	text-align: center;
 	margin: 35px 0;
-	font-size: 13px; 
+	font-size: 13px;
 	color: #9d9d9d;
-	
+
 }
 
 .spanOr::after, .spanOr::before {
@@ -187,7 +206,7 @@ li {
 
 .form-control {
 	background: #F9F9F9;
-  	border-radius: 1.25rem;
+  	/* border-radius: 1.25rem; */
 }
 
 .form-check-input:checked {
@@ -211,7 +230,7 @@ li {
 	color: #fff;
 	width: 100%;
 	margin-bottom: 0;
-	border-radius: 1.25rem;
+	/* border-radius: 1.25rem; */
 }
 .btn:hover{
 	color: #fff;
@@ -266,7 +285,7 @@ iframe{
 	width: 100%;
 	height: 100%;
 }
-  
+
 
 /* Responsive code  */
 
@@ -295,7 +314,7 @@ iframe{
 
 
 @media (min-width: 768px) and (max-width: 991px) {
-    
+
     .form_side {
 		padding: 0 45px;
 	}
@@ -321,7 +340,7 @@ iframe{
 	}
 	.form_side .logo img {
 		width: 130px;
-		
+
 	}
 
 	.content_side {
@@ -330,11 +349,11 @@ iframe{
 }
 
 @media (min-width: 320px) and (max-width: 575px) {
-	.form_side {
-		padding: 0 40px;
-	}
+.form_side {
+    padding: 40px 40px;
+}
 
-	.content_side {	
+	.content_side {
 		padding: 40px;
 	}
 

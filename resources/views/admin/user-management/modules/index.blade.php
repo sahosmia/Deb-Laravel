@@ -33,25 +33,23 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $item->title }}</td>
-                                            <td>{{ $item->created_at }}</td>
+                                            <td>{{ getCreatedAt($item->created_at) }}</td>
 
                                             <td>
                                                 <div class="dropdown d-inline">
                                                     <button class="btn btn-dark dropdown-toggle" type="button"
                                                         id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true"
                                                         aria-expanded="false">
-                                                        Options
                                                     </button>
                                                     <div class="dropdown-menu" x-placement="bottom-start"
                                                         style="position: absolute; transform: translate3d(0px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
                                                         <a class="dropdown-item has-icon" href="{{ route('admin.modules.edit', $item->id) }}"><i
-                                                            class="far fa-heart"></i> Edit</a>
+                                                            class="far fa-edit"></i> Edit</a>
                                                         <form action="{{ route('admin.modules.destroy', $item->id) }}"
                                                             method="post">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button type="submit" class="dropdown-item has-icon"><i
-                                                                    class="far fa-file d-block"></i> Delete</button>
+                                                            <button type="submit" class="dropdown-item has-icon"><i class="fa-solid fa-trash"></i> Delete</button>
                                                         </form>
 
                                                     </div>

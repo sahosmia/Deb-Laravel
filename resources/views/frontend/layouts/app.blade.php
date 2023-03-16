@@ -8,9 +8,7 @@
     <title>DEB - @yield('title')</title>
     <link rel="shortcut icon" href="{{ asset('frontend/assets/img/logo/Final Logo DEB-ai (4).png') }}"
         type="image/x-icon" />
-
     <!-- Bootstrap Css Link  -->
-    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" /> --}}
     <link href="{{ asset('frontend/assets/css/bootstrap.min.css') }}" rel="stylesheet" />
 
     <!-- Google Font Link  -->
@@ -23,14 +21,11 @@
 
     <!-- Font Awesome Link  -->
     <link href="{{ asset('frontend/assets/css/all.min.css') }}" rel="stylesheet" />
-    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" /> --}}
 
     <!-- Vendor Css Link  -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/vendor/css/owl.carousel.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/assets/vendor/css/owl.theme.default.min.css') }}" />
-    {{-- <link rel="stylesheet" href="{{ asset('frontend/assets/vendor/css/lightbox.min.css') }}" /> --}}
     <link rel="stylesheet" href="{{ asset('frontend/assets/vendor/css/aos.css') }}" />
-    {{-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> --}}
 
     <!-- External Css Link  -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}" />
@@ -58,11 +53,8 @@
                     </div>
                     <div class="col-md-4 col-3  top_header_right">
                         <ul class="top_header_social_ul">
-                            <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
                             <li><a href="{{ $settings->facebook }}"><i class="fa-brands fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
                             <li><a href="{{ $settings->linkedin }}"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                            <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -86,32 +78,36 @@
                 <div class="collapse navbar-collapse" id="collapsibleNavId">
                     <ul class="navbar-nav m-auto mt-2 mt-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('front.index') }}">Home</a>
+                            <a class="nav-link @yield('home-menu')" href="{{ route('front.index') }}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html#about_us">About</a>
+                            <a class="nav-link @yield('about-menu')" href="{{ route('front.about.index') }}">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="gallery.html">Gallary</a>
+                            <a class="nav-link @yield('course-menu')" href="{{ route('front.course.index') }}">Course</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('front.blog.index') }}">Blog</a>
+                            <a class="nav-link @yield('gallary-menu')" href="{{ route('front.gallery.index') }}">Gallary</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./notice.html">Notice</a>
+                            <a class="nav-link @yield('blog-menu')" href="{{ route('front.blog.index') }}">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @yield('notice-menu')" href="{{ route('front.notice.index') }}">Notice</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('front.contact.index') }}">Contact</a>
+                            <a class="nav-link @yield('contact-menu')" href="{{ route('front.contact.index') }}">Contact</a>
                         </li>
                     </ul>
 
 
 
 
-                    @auth
-                        <div class="navbar_auth">
-                            <ul>
+                    {{-- <div class="navbar_auth"> --}}
+                    <ul class="navbar_auth">
+                        @auth
+                            <li>
                                 <div class="dropdown profile_dropdown">
                                     <button class="dropdown-toggle" type="button" id="dropdownMenuButton1"
                                         data-bs-toggle="dropdown" aria-expanded="false">
@@ -119,26 +115,30 @@
                                         {{ auth()->user()->name }}
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                        <li><a class="dropdown-item"
-                                                href="{{ route('front.profile.index') }}">Profile</a></li>
-                                        <li><a class="dropdown-item" href="{{ route('admin.home') }}">Admin Panel</a>
+                                        <li><a class="dropdown-item" href="{{ route('front.profile.index') }}">Profile</a>
+                                        </li>
+
+                                        <li><a class="dropdown-item" href="{{ route('front.profile.dashboard') }}">Dashboard</a>
+                                        </li>
+                                        @if (auth()->user()->role_id != 1)
+                                            <li><a class="dropdown-item" href="{{ route('admin.home') }}">Admin Panel</a>
+                                            </li>
+                                        @endif
                                         <li><a class="dropdown-item" href="{{ route('front.profile.edit') }}">Edit</a>
                                         </li>
-                                        <li><a class="dropdown-item" href="./class.html">Class</a></li>
-                                        <li><a class="dropdown-item" href="./rules-regulaion.html">Rules & Regulation</a>
+                                        <li><a class="dropdown-item" href="{{ route('front.cart.index') }}">Cart</a>
                                         </li>
+
                                         <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
                                     </ul>
                                 </div>
-                            </ul>
-                        </div>
+                            </li>
                         @else
-                        <ul>
-                            <li><a class="text-dark" href="{{ route('login') }}">Sing In</a></li>
-                            <li>/</li>
-                            <li><a class="text-dark" href="{{ route('register') }}">Sing Up</a></li>
-                        </ul>
-                    @endauth
+                            <li class="sign-in-btn"><a class="text-dark" href="{{ route('login') }}">Sign In</a></li>
+                            <li class="sign-up-btn"><a class="text-dark" href="{{ route('register') }}">Sign Up</a></li>
+                        @endauth
+                    </ul>
+                    {{-- </div> --}}
                 </div>
 
 
@@ -158,68 +158,76 @@
 
 
     <!-- Footer start  -->
-    <footer class="footer">
-        <div class="container">
-            <div class="main_footer">
+    <footer id="rs-footer" class="rs-footer style1">
+        <div class="footer-top">
+            <div class="container">
                 <div class="row">
-                    <div class="col-md-3 col-sm-6">
-                        <h5 class="footer_subtitle">Contact Us</h5>
-                        <ul>
-                            <li><a href="">+8801952827301</a></li>
-                            <li><a href="">+8801952827301</a></li>
-                            <li><a href="">+8801952827301</a></li>
-                            <li><a href="">sahosmia.webdev@gmail.com</a></li>
+                    <div class="col-lg-3 col-md-12 col-sm-12 md-mb-10">
+                        <div class="footer-logo mb-40">
+                            <a href="{{ route('front.index') }}"><img style="max-width: 100px;"
+                                    src="{{ asset('upload/setting/logo') }}/{{ $settings->logo }}"
+                                    alt=""></a>
+                        </div>
+                        <div class="textwidget white-color pb-40">
+                            <p>We denounce with righteous indig nation in and dislike men who are so beguiled and to
+                                demo realized by the, so blinded by desire, that they cannot foresee.</p>
+                        </div>
+
+
+                        <ul class="footer-social md-mb-30">
+
+                            <li><a target="_blank" href="{{ $settings->facebook }}"><i
+                                        class="fa-brands fa-facebook-f"></i></a></li>
+                            <li><a target="_blank" href="{{ $settings->linkedin }}"><i
+                                        class="fa-brands fa-linkedin-in"></i></a></li>
+
+
                         </ul>
                     </div>
-
-                    <div class="col-md-3 col-sm-6">
-                        <h5 class="footer_subtitle">Quick Link</h5>
-                        <ul>
-                            <li><a href="index.html#about_us">About Us</a></li>
-                            <li><a href="./blog.html">Blog</a></li>
-                            <li><a href="#">News</a></li>
-                            <li><a href="#">Events</a></li>
-                            <li><a href="./Registation1.html">Registaion</a></li>
-                            <li><a href="./contact.html">Contact Us</a></li>
+                    <div class="col-lg-3 col-md-12 col-sm-12 md-mb-10 pl-55 md-pl-15">
+                        <h3 class="footer-title">Quick Link</h3>
+                        <ul class="site-map">
+                            <li><a href="{{ route('front.about.index') }}">About Us</a></li>
+                            <li><a href="{{ route('front.blog.index') }}">Blog</a></li>
+                            <li><a href="{{ route('front.gallery.index') }}">Notice</a></li>
+                            <li><a href="{{ route('front.contact.index') }}">Contact Us</a></li>
                         </ul>
                     </div>
-
-                    <div class="col-md-3 col-sm-6">
-                        <h5 class="footer_subtitle">Blog</h5>
-                        <ul>
-                            <li>
-                                <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Aliquam, laboriosam.</a>
-                            </li>
-                            <li><a href="#">Dolor sit amet consectetur</a></li>
-                            <li><a href="#">Ipsum dolor sit amet</a></li>
-                            <li><a href="#">Amet consectetur adipisicing elit</a></li>
+                    <div class="col-lg-3 col-md-12 col-sm-12 md-mb-10">
+                        <h3 class="footer-title">Blog</h3>
+                        <ul class="site-map">
+                            @foreach ($blogProvider as $blog)
+                                <li><a href="{{ route('front.blog.details', $blog->slug) }}">{{ $blog->title }}</a>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
-
-                    <div class="col-md-3 col-sm-6">
-                        <h5 class="footer_subtitle">News</h5>
-                        <ul>
-                            <li><a href="#">Lorem ipsum dolor sit</a></li>
-                            <li><a href="#">Ipsum dolor sit amet</a></li>
-                            <li><a href="#">Amet cons☺ectetur adipisicing elit</a></li>
-                            <li><a href="#">Dolor sit amet consectetur</a></li>
+                    <div class="col-lg-3 col-md-12 col-sm-12">
+                        <h3 class="footer-title">Course</h3>
+                        <ul class="site-map">
+                            @foreach ($courseProvider as $course)
+                                <li><a
+                                        href="{{ route('front.course.details', $course->slug) }}">{{ $course->title }}</a>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
             </div>
-
-            <div class="row">
-                <div class="footer_bottom d-flex justify-content-between">
-                    <div class="footer_bottom_left">
-                        Copyright © 2022 Sahos Mia. All right reserved
-                    </div>
-                    <div class="footer_bottom_right">
-                        <ul>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row y-middle">
+                    <div class="col-lg-6 md-mb-10 text-lg-end text-center order-last">
+                        <ul class="copy-right-menu">
                             <li><a href="#">Terms & Condition</a></li>
                             <li><a href="#">Privacy</a></li>
-                            <li><a href="#">Refand</a></li>
                         </ul>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="copyright text-lg-start text-center ">
+                            <p>Copyright © 2023 Sahos Mia. All right reserved</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -227,53 +235,14 @@
     </footer>
 
 
-    <!-- Messenger Chat Plugin Code -->
-    <div id="fb-root"></div>
 
-    <!-- Your Chat Plugin code -->
-    <div id="fb-customer-chat" class="fb-customerchat">
-    </div>
-
-    {{-- <script>
-        var chatbox = document.getElementById('fb-customer-chat');
-        chatbox.setAttribute("page_id", "104511779002223");
-        chatbox.setAttribute("attribution", "biz_inbox");
-    </script> --}}
-
-    <!-- Your SDK code -->
-    {{-- <script>
-        window.fbAsyncInit = function() {
-            FB.init({
-                xfbml: true,
-                version: 'v15.0'
-            });
-        };
-
-        (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s);
-            js.id = id;
-            js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script> --}}
     <script src="{{ asset('frontend/assets/js/jquery.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/bootstrap.min.js') }}"></script>
-    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script> --}}
     <script src="{{ asset('frontend/assets/vendor/js/owl.carousel.min.js') }}"></script>
-    {{-- <script src="{{ asset('frontend/assets/vendor/js/lightbox.min.js') }}"></script> --}}
     <script src="{{ asset('frontend/assets/vendor/js/aos.js') }}"></script>
-    {{-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> --}}
     <script src="{{ asset('frontend/assets/js/main.js') }}"></script>
 
     <script>
-        // lightbox.option({
-        //     alwaysShowNavOnTouchDevices: true,
-        //     showImageNumberLabel: false,
-        // });
-
-
         AOS.init({
             once: true,
         });

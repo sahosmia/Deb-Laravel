@@ -25,7 +25,7 @@
                                 <table class="table table-striped table-md">
                                     <tr>
                                         <th>#</th>
-                                        <th>Image</th>
+                                        <th class="w-mx-150">Image</th>
                                         <th>Name</th>
                                         <th>Designation</th>
                                         <th>Feedback</th>
@@ -35,7 +35,7 @@
                                     @forelse ($testimonials as $k => $item)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td><img style="min-width: 50px" class="d-block rounded w-25" src="{{ asset('upload/testimonial') }}/{{ $item->image }}" alt="{{ $item->image }}"></td>
+                                            <td class="w-mx-150"><img class="d-block rounded w-100" src="{{ asset('upload/testimonial') }}/{{ $item->image }}" alt="{{ $item->image }}"></td>
                                             <td>{{ $item->name }}</td>
                                             <td>{{ $item->designation }}</td>
                                             <td>{{ $item->feedback }}</td>
@@ -59,8 +59,7 @@
                                                             method="post">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button type="submit" class="dropdown-item has-icon"><i
-                                                                    class="far fa-file d-block"></i> Delete</button>
+                                                            <button type="submit" class="dropdown-item has-icon"><i class="fa-solid fa-trash"></i></i> Delete</button>
                                                         </form>
 
 
